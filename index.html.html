@@ -7,7 +7,7 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Chart.js for Visual Graphs -->
+  <!-- Chart.js for Graphs -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- jsPDF & AutoTable for Clean B&W PDF Table -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -16,7 +16,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Outfit, Plus Jakarta Sans, Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
@@ -54,14 +54,19 @@
     .custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 8px; }
 
-    /* Exact matching header color */
+    /* Clean solid dark slate header */
     .pro-header-bg {
       background: #182232;
     }
     
-    /* Authentic Warm UPITS Gradient Theme (Replaced plain white screens) */
-    .upits-theme-bg {
-      background: radial-gradient(circle at 50% 6%, #FFFFFF 0%, #FFF8F3 32%, #FEEDDE 68%, #FDCBA0 100%);
+    /* Welcome screen background with authentic warm tints */
+    .welcome-bg {
+      background: radial-gradient(circle at 50% 6%, #FFFFFF 0%, #FFF8F3 35%, #FEEDDE 70%, #FDCBA0 100%);
+    }
+
+    /* Screen below the blue header is strictly pure clean white */
+    .clean-white-screen {
+      background-color: #FFFFFF !important;
     }
 
     .upits-logo-gradient {
@@ -70,41 +75,47 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* Distinct Official Date Colors */
+    /* Exact Date Badge Colors from official artwork */
     .badge-date-25 { background-color: #2E3192; color: #FFFFFF; }
     .badge-date-26 { background-color: #662D91; color: #FFFFFF; }
     .badge-date-27 { background-color: #ED1C24; color: #FFFFFF; }
     .badge-date-28 { background-color: #D4145A; color: #FFFFFF; }
     .badge-date-29 { background-color: #F7931E; color: #FFFFFF; }
 
-    /* Animated Glow on Selected Date */
+    /* Exact Banner Background Warm Cream Color matching Screenshot 39 */
+    .banner-cream-box {
+      background-color: #FBF8F5;
+      border: 1px solid #EFE8E1;
+    }
+
+    /* Animated Halo Ring on Active Date */
     @keyframes datePulseGlow {
       0% {
         box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.8), 0 0 8px rgba(250, 204, 21, 0.6);
-        transform: scale(1.05);
+        transform: scale(1.06);
       }
       50% {
-        box-shadow: 0 0 12px 3px rgba(250, 204, 21, 0.85), 0 0 16px rgba(234, 88, 12, 0.6);
-        transform: scale(1.10);
+        box-shadow: 0 0 14px 4px rgba(250, 204, 21, 0.85), 0 0 18px rgba(234, 88, 12, 0.6);
+        transform: scale(1.12);
       }
       100% {
         box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.8), 0 0 8px rgba(250, 204, 21, 0.6);
-        transform: scale(1.05);
+        transform: scale(1.06);
       }
     }
     .date-active-glow {
       animation: datePulseGlow 2s infinite ease-in-out;
-      outline: 2px solid #FFFFFF;
+      outline: 2.5px solid #FFFFFF;
       z-index: 10;
     }
 
-    /* Pop Animation on Page Entrance */
-    @keyframes popEnterAnim {
-      0% { opacity: 0; transform: scale(0.96) translateY(6px); }
+    /* Smooth Pop and Scale Animation */
+    @keyframes popSmoothEnter {
+      0% { opacity: 0; transform: scale(0.96) translateY(10px); }
       100% { opacity: 1; transform: scale(1) translateY(0); }
     }
-    .view-pop-enter {
-      animation: popEnterAnim 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    .anim-pop-enter {
+      animation: popSmoothEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     .header-curved {
@@ -119,18 +130,13 @@
 </head>
 <body class="antialiased min-h-screen flex justify-center items-center">
 
-  <main class="w-full max-w-md min-h-screen upits-theme-bg relative flex flex-col shadow-2xl overflow-x-hidden border-x border-slate-800/40">
+  <main class="w-full max-w-md min-h-screen clean-white-screen relative flex flex-col shadow-2xl overflow-x-hidden border-x border-slate-800/40">
 
     <!-- ======================================================== -->
     <!-- 1. POSTER WELCOME SCREEN                                 -->
     <!-- ======================================================== -->
-    <section id="view-welcome" class="relative min-h-screen flex flex-col justify-between upits-theme-bg p-6 z-50 overflow-hidden select-none view-pop-enter app-bottom-margin">
+    <section id="view-welcome" class="relative min-h-screen flex flex-col justify-between welcome-bg p-6 z-50 overflow-hidden select-none anim-pop-enter app-bottom-margin">
       
-      <!-- Ambient Visual Background Curves -->
-      <div class="absolute -top-16 -right-16 w-60 h-60 rounded-full bg-gradient-to-br from-orange-400/35 to-fuchsia-300/15 blur-3xl pointer-events-none"></div>
-      <div class="absolute top-1/3 -left-20 w-64 h-64 rounded-full bg-gradient-to-tr from-purple-700/20 to-blue-500/15 blur-3xl pointer-events-none"></div>
-      <div class="absolute bottom-28 -right-14 w-60 h-60 rounded-full bg-gradient-to-tl from-rose-400/20 to-amber-400/15 blur-2xl pointer-events-none"></div>
-
       <!-- Top Action Bar -->
       <div class="flex justify-between items-center w-full z-20 pt-2">
         <span class="text-xs font-black uppercase tracking-widest text-purple-950 bg-white/90 px-4 py-2 rounded-full shadow-sm border border-purple-200">
@@ -141,7 +147,7 @@
         </button>
       </div>
 
-      <!-- Center Elements with Official Design Banner -->
+      <!-- Center Elements -->
       <div class="my-auto flex flex-col items-center text-center z-10 w-full py-2">
         
         <div class="flex items-center gap-3 mb-1">
@@ -155,14 +161,14 @@
         </h1>
 
         <div class="text-sm font-black tracking-wider uppercase text-slate-900 max-w-[340px] leading-tight">
-          Uttar Pradesh International Trade Show[cite: 1, 5, 6]
+          Uttar Pradesh International Trade Show
         </div>
         
         <!-- 4th Edition Badge -->
         <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-orange-100 border border-orange-300 text-upits-orange font-black text-[11px] mt-2 shadow-xs">
-          <span>4th Edition</span>[cite: 8]
+          <span>4th Edition</span>
           <span class="w-1.5 h-1.5 rounded-full bg-upits-orange"></span>
-          <span class="text-slate-700 font-bold">Greater Noida</span>[cite: 5, 6]
+          <span class="text-slate-700 font-bold">Greater Noida</span>
         </div>
 
         <!-- Big Dual Logos Card with Partition Line -->
@@ -170,22 +176,22 @@
           <div class="flex flex-col items-center max-w-[150px]">
             <img src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1780481420/yjrsvaizrmprlbrrdsde.png" alt="Khajani Welfare Society" class="h-20 w-auto object-contain drop-shadow-sm" />
             <span class="text-xs font-black text-slate-900 mt-1.5 uppercase tracking-tight text-center leading-tight">Khajani Welfare Society</span>
-            <span class="text-[10px] text-slate-500 font-bold">Skills & Reform</span>[cite: 5]
+            <span class="text-[10px] text-slate-500 font-bold">Skills & Reform</span>
           </div>
 
           <div class="w-[2.5px] h-20 bg-gradient-to-b from-transparent via-slate-300 to-transparent"></div>
 
           <div class="flex flex-col items-center max-w-[150px]">
             <img src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1790191456/UPITS-2026-logo-s-min_nfitgu.png" alt="UPITS 2026" class="h-20 w-auto object-contain drop-shadow-sm" />
-            <span class="text-xs font-black text-slate-900 mt-1.5 uppercase tracking-tight text-center leading-tight">25 - 29 Sep 2026</span>[cite: 5, 6]
-            <span class="text-[10px] text-slate-500 font-bold">India Expo Centre</span>[cite: 5, 6]
+            <span class="text-xs font-black text-slate-900 mt-1.5 uppercase tracking-tight text-center leading-tight">25 - 29 Sep 2026</span>
+            <span class="text-[10px] text-slate-500 font-bold">India Expo Centre</span>
           </div>
         </div>
 
         <!-- Khajani Welfare Society Quote -->
         <div class="mt-4 px-2">
           <p class="text-[11px] text-slate-700 leading-relaxed font-semibold italic bg-white/80 p-3 rounded-2xl border border-orange-200 shadow-sm">
-            "Khajani Welfare Society is committed to empowering communities through education, skill development, and self-reliant social initiatives."[cite: 6]
+            "Khajani Welfare Society is committed to empowering communities through education, skill development, and self-reliant social initiatives."
           </p>
         </div>
       </div>
@@ -197,7 +203,6 @@
           <i class="fa-solid fa-arrow-right text-sm"></i>
         </button>
 
-        <!-- Official Banner Design Image: Pure Rectangle (No Curve) with Border -->
         <div class="w-full bg-white p-2 border border-slate-300 shadow-md">
           <img src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1790314598/Screenshot_37_qhje7z.png" alt="Official UPITS Design Banner" class="w-full h-auto object-contain block" />
         </div>
@@ -205,12 +210,12 @@
     </section>
 
     <!-- ======================================================== -->
-    <!-- 2. MAIN APPLICATION                                      -->
+    <!-- 2. MAIN APPLICATION (Clean White Body Below Header)       -->
     <!-- ======================================================== -->
-    <section id="view-home" class="hidden flex-col flex-1 pb-24 upits-theme-bg app-bottom-margin view-pop-enter">
+    <section id="view-home" class="hidden flex-col flex-1 pb-24 clean-white-screen app-bottom-margin anim-pop-enter">
       
-      <!-- Header matching Screenshot 41 Structure -->
-      <header class="pro-header-bg text-white px-5 pt-6 pb-6 header-curved relative">
+      <!-- Slate Header -->
+      <header class="pro-header-bg text-white px-5 pt-6 pb-6 header-curved relative shadow-lg">
         
         <!-- Logo Row with Settings Icon -->
         <div class="flex items-center justify-between">
@@ -228,9 +233,9 @@
           </button>
         </div>
 
-        <!-- 5-Day Strip in Format: September [25][26][27][28][29], 2026 (No redundant labels) -->
-        <div class="mt-4 bg-white rounded-2xl p-3.5 shadow-sm text-slate-900 border border-slate-100 flex items-center justify-center">
-          <div class="flex items-center justify-center gap-1.5 flex-wrap font-datefont">
+        <!-- 5-Day Strip in Exact Format & Warm Cream Background from Screenshot 39 -->
+        <div class="mt-4 banner-cream-box rounded-2xl p-3.5 shadow-sm text-slate-900 flex items-center justify-center">
+          <div class="flex items-center justify-center gap-2 flex-wrap font-datefont">
             <span class="text-sm font-extrabold text-slate-800">September</span>
             
             <button onclick="setSystemDate('25')" id="day-cell-25" class="w-8 h-8 rounded-lg badge-date-25 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95">25</button>
@@ -243,16 +248,16 @@
           </div>
         </div>
 
-        <!-- Date Total Revenue matching Screenshot 41 -->
-        <div class="mt-3.5 bg-slate-900/60 p-4 rounded-2xl border border-slate-700/60">
+        <!-- Date Total Revenue Card -->
+        <div class="mt-3.5 bg-slate-900/70 p-4 rounded-2xl border border-slate-700/60 shadow-inner">
           <div class="text-[10px] text-slate-300 uppercase font-black tracking-wider">Date Total Revenue</div>
           <div id="today-earnings" class="text-3xl font-black font-heading text-white tracking-tight mt-0.5">₹ 0.00</div>
           <div class="text-[11px] text-slate-300 mt-1 font-medium">Quantity Sold: <span id="today-units" class="text-white font-black">0</span> units</div>
         </div>
       </header>
 
-      <!-- TAB 1: PRODUCT CATALOG -->
-      <div id="tab-catalog" class="view-pop-enter px-5 mt-4 space-y-4">
+      <!-- TAB 1: PRODUCT CATALOG (Pure White Background) -->
+      <div id="tab-catalog" class="anim-pop-enter px-5 mt-4 space-y-4 clean-white-screen">
         
         <!-- Live Instant Search (No enter key required) -->
         <div class="relative">
@@ -262,19 +267,19 @@
             id="search-input"
             oninput="renderProductCatalog()" 
             placeholder="Search items by name or size instantly..." 
-            class="w-full pl-11 pr-4 py-3.5 bg-white/95 rounded-2xl border border-orange-200 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-upits-orange shadow-sm placeholder:text-slate-400"
+            class="w-full pl-11 pr-4 py-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-upits-orange shadow-sm placeholder:text-slate-400"
           />
         </div>
 
-        <!-- Single-Line Filters Row (Side-by-side) -->
+        <!-- Single-Line Filters Row (Side-by-side, No 2nd line) -->
         <div class="flex items-center gap-1.5 overflow-x-auto py-1 px-1 custom-scrollbar">
           <button onclick="setFilter('all')" id="filter-btn-all" class="py-2 px-3 rounded-xl text-xs font-black bg-slate-900 text-white shadow-sm shrink-0 transition">All Items</button>
-          <button onclick="setFilter('favorites')" id="filter-btn-favorites" class="py-2 px-3 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 flex items-center gap-1 shrink-0 transition">
+          <button onclick="setFilter('favorites')" id="filter-btn-favorites" class="py-2 px-3 rounded-xl text-xs font-bold bg-slate-50 text-slate-700 border border-slate-200 flex items-center gap-1 shrink-0 transition">
             <i class="fa-solid fa-heart text-trade-red text-xs"></i> Starred
           </button>
-          <button onclick="setFilter('bestseller')" id="filter-btn-bestseller" class="py-2 px-3 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 shrink-0 transition">Top Sold</button>
-          <button onclick="setFilter('price-asc')" id="filter-btn-price-asc" class="py-2 px-3 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 shrink-0 transition">Price ↑</button>
-          <button onclick="setFilter('price-desc')" id="filter-btn-price-desc" class="py-2 px-3 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 shrink-0 transition">Price ↓</button>
+          <button onclick="setFilter('bestseller')" id="filter-btn-bestseller" class="py-2 px-3 rounded-xl text-xs font-bold bg-slate-50 text-slate-700 border border-slate-200 shrink-0 transition">Top Sold</button>
+          <button onclick="setFilter('price-asc')" id="filter-btn-price-asc" class="py-2 px-3 rounded-xl text-xs font-bold bg-slate-50 text-slate-700 border border-slate-200 shrink-0 transition">Price ↑</button>
+          <button onclick="setFilter('price-desc')" id="filter-btn-price-desc" class="py-2 px-3 rounded-xl text-xs font-bold bg-slate-50 text-slate-700 border border-slate-200 shrink-0 transition">Price ↓</button>
           <button onclick="generateFormalPDF()" title="Download Stock Report" class="py-2 px-3 rounded-xl bg-slate-900 text-white font-black text-xs flex items-center gap-1 hover:bg-black active:scale-95 shadow shrink-0 transition">
             <i class="fa-solid fa-file-pdf text-xs text-rose-400"></i> PDF
           </button>
@@ -283,13 +288,13 @@
           </button>
         </div>
 
-        <button onclick="openAddProductModal()" class="w-full py-3.5 px-4 rounded-2xl bg-white border border-orange-200 hover:border-orange-300 text-slate-900 font-black text-sm flex items-center justify-center gap-2 shadow-sm active:scale-98 transition">
+        <button onclick="openAddProductModal()" class="w-full py-3.5 px-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 text-slate-900 font-black text-sm flex items-center justify-center gap-2 shadow-sm active:scale-98 transition">
           <i class="fa-solid fa-box-open text-upits-orange text-base"></i> + Add New Item
         </button>
 
         <div class="mt-4">
           <div class="flex items-center justify-between mb-2.5 px-1">
-            <h2 class="text-xs font-black text-slate-600 uppercase tracking-wider">Inventory</h2>
+            <h2 class="text-xs font-black text-slate-500 uppercase tracking-wider">Inventory</h2>
             <span id="catalog-count" class="text-xs text-slate-500 font-bold">0 Items</span>
           </div>
 
@@ -303,11 +308,11 @@
         </div>
       </div>
 
-      <!-- TAB 2: BILLING -->
-      <div id="tab-billing" class="hidden view-pop-enter px-5 mt-4 space-y-4">
+      <!-- TAB 2: BILLING (Pure White Background) -->
+      <div id="tab-billing" class="hidden anim-pop-enter px-5 mt-4 space-y-4 clean-white-screen">
         
-        <div class="bg-white/95 backdrop-blur-md p-5 rounded-3xl border border-orange-200 shadow-sm space-y-4">
-          <div class="flex items-center justify-between border-b border-orange-100 pb-3">
+        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-200 pb-3">
             <div>
               <h2 class="text-base font-black text-slate-900">New Sale</h2>
               <p class="text-xs text-slate-400 font-medium">Record sale & update stock</p>
@@ -334,12 +339,12 @@
               </div>
             </div>
 
-            <div class="bg-orange-50/60 p-3 rounded-xl border border-orange-100 flex items-center justify-between text-xs">
+            <div class="bg-white p-3 rounded-xl border border-slate-200 flex items-center justify-between text-xs">
               <span class="text-slate-600 font-semibold">Available Stock:</span>
               <span id="sale-available-stock" class="font-black text-slate-900 text-sm">--</span>
             </div>
 
-            <div class="bg-orange-100/70 border border-orange-200 p-4 rounded-2xl flex items-center justify-between">
+            <div class="bg-orange-50 border border-orange-200 p-4 rounded-2xl flex items-center justify-between">
               <span class="text-sm font-black text-orange-950">Grand Total</span>
               <span id="sale-total-display" class="text-3xl font-black text-upits-orange">₹ 0.00</span>
             </div>
@@ -347,11 +352,11 @@
             <div class="grid grid-cols-2 gap-3">
               <div>
                 <label class="block text-xs font-bold text-slate-700 mb-1">Customer Name (Optional)</label>
-                <input type="text" id="sale-customer-name" placeholder="Name" class="w-full text-xs px-3.5 py-3 rounded-xl border border-slate-200 font-semibold" />
+                <input type="text" id="sale-customer-name" placeholder="Name" class="w-full text-xs px-3.5 py-3 rounded-xl border border-slate-200 font-semibold bg-white" />
               </div>
               <div>
                 <label class="block text-xs font-bold text-slate-700 mb-1">Contact Phone (Optional)</label>
-                <input type="tel" id="sale-customer-phone" placeholder="Phone" class="w-full text-xs px-3.5 py-3 rounded-xl border border-slate-200 font-semibold" />
+                <input type="tel" id="sale-customer-phone" placeholder="Phone" class="w-full text-xs px-3.5 py-3 rounded-xl border border-slate-200 font-semibold bg-white" />
               </div>
             </div>
 
@@ -362,10 +367,10 @@
         </div>
       </div>
 
-      <!-- TAB 3: RECORDS -->
-      <div id="tab-records" class="hidden view-pop-enter px-5 mt-4 space-y-4">
+      <!-- TAB 3: RECORDS (Pure White Background) -->
+      <div id="tab-records" class="hidden anim-pop-enter px-5 mt-4 space-y-4 clean-white-screen">
         
-        <div class="bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-orange-200 flex items-center justify-between shadow-sm">
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex items-center justify-between shadow-sm">
           <div>
             <span class="text-xs uppercase font-black text-slate-400">Total Entries</span>
             <div id="manage-sales-count" class="text-2xl font-black text-slate-900 mt-0.5">0</div>
@@ -384,10 +389,10 @@
         </div>
       </div>
 
-      <!-- TAB 4: ANALYTICS -->
-      <div id="tab-analytics" class="hidden view-pop-enter px-5 mt-4 space-y-4 pb-8">
+      <!-- TAB 4: ANALYTICS (Pure White Background) -->
+      <div id="tab-analytics" class="hidden anim-pop-enter px-5 mt-4 space-y-4 pb-8 clean-white-screen">
         
-        <div class="grid grid-cols-2 gap-2 bg-orange-100/60 p-1.5 rounded-2xl text-xs font-black">
+        <div class="grid grid-cols-2 gap-2 bg-slate-100 p-1.5 rounded-2xl text-xs font-black">
           <button onclick="toggleGraphMode('top-products')" id="graph-subtab-bar" class="py-2.5 rounded-xl transition bg-white text-slate-900 shadow">
             Top Selling Products
           </button>
@@ -396,11 +401,11 @@
           </button>
         </div>
 
-        <div class="bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-sm border border-orange-200">
+        <div class="bg-slate-50 p-4 rounded-3xl shadow-sm border border-slate-200">
           <canvas id="analyticsChart" class="w-full" height="230"></canvas>
         </div>
 
-        <div class="bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-sm border border-orange-200">
+        <div class="bg-slate-50 p-4 rounded-3xl shadow-sm border border-slate-200">
           <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-3">Items (High to Low Sold)</h3>
           <div id="analytics-product-list" class="space-y-2"></div>
         </div>
@@ -429,13 +434,13 @@
     </section>
 
     <!-- 3. PRODUCT PREVIEW SCREEN -->
-    <section id="view-product-detail" class="hidden flex-col flex-1 upits-theme-bg min-h-screen app-bottom-margin view-pop-enter">
-      <div class="sticky top-0 bg-white/90 backdrop-blur-md px-5 py-3.5 border-b border-orange-200 flex items-center justify-between z-20">
-        <button onclick="navigateView('view-home')" class="flex items-center gap-2 text-xs font-black text-slate-800 hover:text-black py-1.5 px-3 rounded-xl bg-orange-100 active:scale-95 transition">
+    <section id="view-product-detail" class="hidden flex-col flex-1 clean-white-screen min-h-screen app-bottom-margin anim-pop-enter">
+      <div class="sticky top-0 bg-white/95 backdrop-blur-md px-5 py-3.5 border-b border-slate-200 flex items-center justify-between z-20">
+        <button onclick="navigateView('view-home')" class="flex items-center gap-2 text-xs font-black text-slate-800 hover:text-black py-1.5 px-3 rounded-xl bg-slate-100 active:scale-95 transition">
           <i class="fa-solid fa-arrow-left"></i> Back
         </button>
         <span class="text-xs font-black uppercase tracking-wider text-slate-400">Details</span>
-        <button id="detail-favorite-btn" onclick="toggleDetailFavorite()" class="w-9 h-9 rounded-full bg-orange-100 flex items-center justify-center text-slate-400">
+        <button id="detail-favorite-btn" onclick="toggleDetailFavorite()" class="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
           <i class="fa-solid fa-heart text-sm"></i>
         </button>
       </div>
@@ -446,10 +451,10 @@
           <i class="fa-regular fa-image text-6xl mb-2"></i>
           <span class="text-xs font-bold text-slate-400">No Image Uploaded</span>
         </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-orange-50/80 via-transparent to-black/15"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-black/15"></div>
       </div>
 
-      <div class="p-6 -mt-8 relative z-10 space-y-5">
+      <div class="p-6 -mt-8 relative z-10 space-y-5 bg-white">
         <div>
           <div class="flex items-center gap-2 mb-2 flex-wrap">
             <span id="detail-size-tag" class="hidden bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-md"></span>
@@ -472,26 +477,26 @@
           </button>
         </div>
 
-        <p id="detail-description" class="text-xs text-slate-700 leading-relaxed bg-white/80 p-4 rounded-2xl border border-orange-200 font-medium hidden">
+        <p id="detail-description" class="text-xs text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-2xl border border-slate-200 font-medium hidden">
         </p>
 
         <div class="grid grid-cols-3 gap-2.5 text-center">
-          <div class="bg-white/90 p-3 rounded-2xl border border-orange-200 shadow-sm">
+          <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200">
             <div class="text-[10px] text-slate-400 font-bold uppercase">Current Stock</div>
             <div id="detail-stock-count" class="text-xl font-black text-slate-900 mt-0.5">0</div>
           </div>
-          <div class="bg-white/90 p-3 rounded-2xl border border-orange-200 shadow-sm">
+          <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200">
             <div class="text-[10px] text-slate-400 font-bold uppercase">Opening Stock</div>
             <div id="detail-opening-stock" class="text-xl font-black text-slate-900 mt-0.5">0</div>
           </div>
-          <div class="bg-white/90 p-3 rounded-2xl border border-orange-200 shadow-sm">
+          <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200">
             <div class="text-[10px] text-slate-400 font-bold uppercase">Total Sold</div>
             <div id="detail-sold-count" class="text-xl font-black text-slate-800 mt-0.5">0</div>
           </div>
         </div>
 
         <!-- Stock Adjustment -->
-        <div class="bg-white/90 border border-orange-200 p-5 rounded-3xl space-y-3 shadow-sm">
+        <div class="bg-slate-50 border border-slate-200 p-5 rounded-3xl space-y-3">
           <div class="flex items-center justify-between">
             <h3 class="text-xs font-black uppercase tracking-wider text-slate-800 flex items-center gap-2">
               <i class="fa-solid fa-boxes-stacked text-upits-orange"></i> Edit Stock
@@ -502,11 +507,11 @@
           <div class="grid grid-cols-2 gap-3">
             <div>
               <label class="block text-xs font-bold text-slate-700 mb-1">Opening Stock</label>
-              <input type="number" id="input-edit-opening-stock" placeholder="Optional" class="w-full text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl font-bold" />
+              <input type="number" id="input-edit-opening-stock" placeholder="Optional" class="w-full text-xs px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl font-bold" />
             </div>
             <div>
               <label class="block text-xs font-bold text-slate-700 mb-1">Total Stock</label>
-              <input type="number" id="input-edit-total-stock" placeholder="Optional" class="w-full text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl font-bold" />
+              <input type="number" id="input-edit-total-stock" placeholder="Optional" class="w-full text-xs px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl font-bold" />
             </div>
           </div>
 
@@ -516,7 +521,7 @@
         </div>
 
         <!-- Stock Reminder Limit -->
-        <div class="bg-amber-50/90 border border-amber-200 p-4 rounded-2xl shadow-sm">
+        <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl">
           <div class="flex items-center justify-between mb-2">
             <span class="text-xs font-bold text-amber-950 flex items-center gap-2">
               <i class="fa-solid fa-bell text-amber-600"></i> Low Stock Alert Limit
@@ -532,7 +537,7 @@
         </div>
 
         <!-- More Options -->
-        <div class="bg-white/90 border border-orange-200 p-5 rounded-3xl space-y-4 shadow-sm">
+        <div class="bg-white border border-slate-200 p-5 rounded-3xl space-y-4 shadow-sm">
           <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">More Options</h3>
           
           <div class="grid grid-cols-2 gap-2">
@@ -558,7 +563,7 @@
     </section>
 
     <!-- 4. SETTINGS SCREEN -->
-    <section id="view-settings" class="hidden flex-col flex-1 upits-theme-bg min-h-screen app-bottom-margin view-pop-enter">
+    <section id="view-settings" class="hidden flex-col flex-1 clean-white-screen min-h-screen app-bottom-margin anim-pop-enter">
       <header class="pro-header-bg text-white px-5 py-4 flex items-center justify-between shadow sticky top-0 z-20">
         <button onclick="navigateView('view-home')" class="flex items-center gap-2 text-xs font-extrabold text-slate-200 hover:text-white py-1.5 px-3 rounded-xl bg-white/10 active:scale-95 transition">
           <i class="fa-solid fa-arrow-left"></i> Back
@@ -570,25 +575,25 @@
       <div class="p-5 space-y-4">
         
         <!-- Date Selection Card (Strictly 25 to 29) -->
-        <div class="bg-white/95 p-5 rounded-3xl border border-orange-200 shadow-sm space-y-3">
+        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
           <div class="text-xs font-black uppercase tracking-wider text-slate-800">
             Event Date Selection (25 to 29 Sep)
           </div>
 
           <div class="grid grid-cols-5 gap-2 pt-1">
-            <button onclick="setSystemDate('25')" id="cfg-date-25" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold">25</button>
-            <button onclick="setSystemDate('26')" id="cfg-date-26" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold">26</button>
-            <button onclick="setSystemDate('27')" id="cfg-date-27" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold">27</button>
-            <button onclick="setSystemDate('28')" id="cfg-date-28" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold">28</button>
-            <button onclick="setSystemDate('29')" id="cfg-date-29" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold">29</button>
+            <button onclick="setSystemDate('25')" id="cfg-date-25" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">25</button>
+            <button onclick="setSystemDate('26')" id="cfg-date-26" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">26</button>
+            <button onclick="setSystemDate('27')" id="cfg-date-27" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">27</button>
+            <button onclick="setSystemDate('28')" id="cfg-date-28" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">28</button>
+            <button onclick="setSystemDate('29')" id="cfg-date-29" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">29</button>
           </div>
         </div>
 
         <!-- Default Catalog Filter Configuration -->
-        <div class="bg-white/95 p-5 rounded-3xl border border-orange-200 shadow-sm space-y-3">
+        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
           <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Default Catalog Filter</h3>
           <p class="text-[11px] text-slate-500">Pick which filter is applied automatically when opening the catalog.</p>
-          <select id="setting-default-filter" onchange="saveDefaultFilterPref()" class="w-full text-xs px-3.5 py-2.5 bg-slate-50 border rounded-xl font-bold text-slate-800">
+          <select id="setting-default-filter" onchange="saveDefaultFilterPref()" class="w-full text-xs px-3.5 py-2.5 bg-white border rounded-xl font-bold text-slate-800">
             <option value="all">All Items</option>
             <option value="favorites">Starred Items</option>
             <option value="bestseller">Top Sold</option>
@@ -598,16 +603,16 @@
         </div>
 
         <!-- Stall & Incharge Details Card -->
-        <div class="bg-white/95 p-5 rounded-3xl border border-orange-200 shadow-sm space-y-3">
+        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
           <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Stall Information</h3>
           <div class="space-y-2">
             <div>
               <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Incharge Name</label>
-              <input type="text" id="setting-incharge-name" placeholder="Name on Reports" class="w-full text-xs px-3 py-2 bg-slate-50 border rounded-xl font-bold" />
+              <input type="text" id="setting-incharge-name" placeholder="Name on Reports" class="w-full text-xs px-3 py-2 bg-white border rounded-xl font-bold" />
             </div>
             <div>
               <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Stall / Hall Number</label>
-              <input type="text" id="setting-stall-no" placeholder="e.g. Hall 3, Stall B-12" class="w-full text-xs px-3 py-2 bg-slate-50 border rounded-xl font-bold" />
+              <input type="text" id="setting-stall-no" placeholder="e.g. Hall 3, Stall B-12" class="w-full text-xs px-3 py-2 bg-white border rounded-xl font-bold" />
             </div>
           </div>
           <button onclick="saveStallSettings()" class="w-full py-2.5 bg-slate-900 text-white text-xs font-bold rounded-xl active:scale-95 transition">
@@ -616,10 +621,10 @@
         </div>
 
         <!-- System Backup -->
-        <div class="bg-white/95 p-5 rounded-3xl border border-orange-200 shadow-sm space-y-2.5">
+        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2.5">
           <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">System Backup</h3>
           <p class="text-[11px] text-slate-500">Download a complete offline copy of your stall inventory and transaction records.</p>
-          <button onclick="backupAllDataJSON()" class="w-full py-3 px-3 rounded-xl border border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-800 font-bold text-xs flex items-center justify-center gap-2 active:scale-95 transition">
+          <button onclick="backupAllDataJSON()" class="w-full py-3 px-3 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-800 font-bold text-xs flex items-center justify-center gap-2 active:scale-95 transition">
             <i class="fa-solid fa-file-arrow-down text-upits-orange"></i> Download Offline Data Backup
           </button>
         </div>
@@ -669,7 +674,7 @@
             <label class="block text-xs font-bold text-slate-700 mb-1">Poshak Size</label>
             <button type="button" id="btn-size-g" onclick="toggleGSize()" class="w-full py-2.5 px-3 border rounded-xl text-xs font-black bg-orange-50 border-orange-300 text-orange-950 flex items-center justify-center gap-2">
               <i class="fa-solid fa-check text-upits-orange" id="g-icon"></i>
-              <span>G (Circular)</span>[cite: 2]
+              <span>G (Circular)</span>
             </button>
             <input type="hidden" id="prod-size" value="G (Circular)" />
           </div>
@@ -801,14 +806,14 @@
         var el = document.getElementById(v);
         if (el) {
           el.classList.add('hidden');
-          el.classList.remove('view-pop-enter');
+          el.classList.remove('anim-pop-enter');
         }
       });
       var target = document.getElementById(viewId);
       if (target) {
         target.classList.remove('hidden');
         void target.offsetWidth;
-        target.classList.add('view-pop-enter');
+        target.classList.add('anim-pop-enter');
         window.scrollTo(0, 0);
       }
     }
@@ -823,11 +828,11 @@
         if (t === tabId) {
           el.classList.remove('hidden');
           void el.offsetWidth;
-          el.classList.add('view-pop-enter');
+          el.classList.add('anim-pop-enter');
           navBtn.className = "flex flex-col items-center gap-1 flex-1 text-upits-orange font-black";
         } else {
           el.classList.add('hidden');
-          el.classList.remove('view-pop-enter');
+          el.classList.remove('anim-pop-enter');
           navBtn.className = "flex flex-col items-center gap-1 flex-1 text-slate-400 font-extrabold hover:text-slate-800";
         }
       });
@@ -846,7 +851,7 @@
         if (d === date) {
           b.className = "py-3 text-xs font-black rounded-xl border border-upits-orange bg-upits-orange text-white shadow";
         } else {
-          b.className = "py-3 text-xs font-black rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold";
+          b.className = "py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold";
         }
       });
 
@@ -1067,7 +1072,6 @@
       navigateToTab('tab-records');
     }
 
-    // Dynamic single-line non-slider filter
     function setFilter(type) {
       currentFilter = type;
       ['all', 'favorites', 'bestseller', 'price-asc', 'price-desc'].forEach(function(c) {
@@ -1076,7 +1080,7 @@
         if (c === type) {
           btn.className = "py-2 px-3 rounded-xl text-xs font-black bg-slate-900 text-white shadow-sm shrink-0 transition";
         } else {
-          btn.className = "py-2 px-3 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 shrink-0 transition";
+          btn.className = "py-2 px-3 rounded-xl text-xs font-bold bg-slate-50 text-slate-700 border border-slate-200 shrink-0 transition";
         }
       });
       renderProductCatalog();
@@ -1089,7 +1093,7 @@
       alert('Default filter updated to ' + pref);
     }
 
-    // Instant Search without pressing enter
+    // Instant live search without pressing enter
     function renderProductCatalog() {
       var grid = document.getElementById('product-grid');
       var emptyBox = document.getElementById('catalog-empty');
@@ -1130,10 +1134,10 @@
         var duplicateOriginal = findDuplicateMatch(p);
 
         return `
-          <div onclick="openProductDetail('${p.id}')" class="bg-white/95 p-4 rounded-3xl border ${duplicateOriginal ? 'border-amber-400 bg-amber-50/20' : 'border-orange-200/90'} shadow-sm flex flex-col gap-3 cursor-pointer hover:border-orange-300 transition active:scale-[0.99]">
+          <div onclick="openProductDetail('${p.id}')" class="bg-white p-4 rounded-3xl border ${duplicateOriginal ? 'border-amber-400 bg-amber-50/20' : 'border-slate-200'} shadow-sm flex flex-col gap-3 cursor-pointer hover:border-slate-300 transition active:scale-[0.99]">
             <div class="flex items-center justify-between gap-3">
               <div class="flex items-center gap-3.5 min-w-0 flex-1">
-                <div class="w-16 h-16 rounded-2xl bg-orange-50 shrink-0 overflow-hidden flex items-center justify-center border border-orange-100 shadow-xs">
+                <div class="w-16 h-16 rounded-2xl bg-slate-100 shrink-0 overflow-hidden flex items-center justify-center border border-slate-200 shadow-xs">
                   ${p.imageUrl 
                     ? `<img src="${p.imageUrl}" alt="${p.name}" class="w-full h-full object-cover" />`
                     : `<i class="fa-regular fa-image text-slate-300 text-xl"></i>`
@@ -1486,7 +1490,7 @@
 
       container.innerHTML = dateSales.map(function(s) {
         return `
-          <div class="bg-white/95 p-4 rounded-2xl border border-orange-200 shadow-sm flex items-center justify-between text-xs">
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between text-xs">
             <div>
               <div class="font-black text-slate-900 text-sm">${s.productName} ${s.productSize ? `(${s.productSize})` : ''}</div>
               <div class="text-xs text-slate-400 mt-0.5">Buyer: ${s.customerName || 'Walk-in'}</div>
@@ -1601,9 +1605,9 @@
 
       container.innerHTML = sortedFull.map(function(p, idx) {
         return `
-          <div class="flex items-center justify-between p-3 rounded-2xl bg-white/95 border border-orange-200 text-xs">
+          <div class="flex items-center justify-between p-3 rounded-2xl bg-white border border-slate-200 text-xs shadow-xs">
             <div class="flex items-center gap-3">
-              <span class="w-6 h-6 rounded-full bg-orange-100 text-slate-800 font-black text-xs flex items-center justify-center">${idx + 1}</span>
+              <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-800 font-black text-xs flex items-center justify-center">${idx + 1}</span>
               <div class="w-10 h-10 rounded-xl bg-white overflow-hidden flex items-center justify-center shrink-0 border border-slate-200">
                 ${p.imageUrl ? `<img src="${p.imageUrl}" class="w-full h-full object-cover"/>` : `<i class="fa-regular fa-image text-slate-300 text-xs"></i>`}
               </div>
@@ -1636,7 +1640,6 @@
       navigateView('view-settings');
     }
 
-    // PDF Table Generation with Official KWS Logo Included at Top
     function generateFormalPDF() {
       var jsPDF = window.jspdf.jsPDF;
       var docPDF = new jsPDF({ orientation: "portrait", unit: "pt", format: "a4" });
