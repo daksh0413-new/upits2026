@@ -7,12 +7,12 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Chart.js for Sales Visuals -->
+  <!-- Chart.js for Graphs -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- jsPDF & AutoTable for Clean B&W PDF Table -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
-  <!-- SheetJS for Clean Excel Export -->
+  <!-- SheetJS for Excel Export -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
@@ -72,7 +72,7 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* Official Date Colors */
+    /* Distinct Official Date Colors */
     .badge-date-25 { background-color: #2E3192; color: #FFFFFF; }
     .badge-date-26 { background-color: #662D91; color: #FFFFFF; }
     .badge-date-27 { background-color: #ED1C24; color: #FFFFFF; }
@@ -131,12 +131,10 @@
     <!-- ======================================================== -->
     <section id="view-welcome" class="relative min-h-screen flex flex-col justify-between welcome-bg p-6 z-50 overflow-hidden select-none anim-pop-enter app-bottom-margin">
       
-      <!-- Ambient Visual Background Curves -->
       <div class="absolute -top-16 -right-16 w-60 h-60 rounded-full bg-gradient-to-br from-orange-400/35 to-fuchsia-300/15 blur-3xl pointer-events-none"></div>
       <div class="absolute top-1/3 -left-20 w-64 h-64 rounded-full bg-gradient-to-tr from-purple-700/20 to-blue-500/15 blur-3xl pointer-events-none"></div>
       <div class="absolute bottom-28 -right-14 w-60 h-60 rounded-full bg-gradient-to-tl from-rose-400/20 to-amber-400/15 blur-2xl pointer-events-none"></div>
 
-      <!-- Top Action Bar -->
       <div class="flex justify-between items-center w-full z-20 pt-2">
         <span class="text-xs font-black uppercase tracking-widest text-purple-950 bg-white/90 px-4 py-2 rounded-full shadow-sm border border-purple-200">
           Stall Portal 2026
@@ -146,7 +144,6 @@
         </button>
       </div>
 
-      <!-- Center Elements with Official Design Banner -->
       <div class="my-auto flex flex-col items-center text-center z-10 w-full py-2">
         
         <div class="flex items-center gap-3 mb-1">
@@ -163,14 +160,12 @@
           Uttar Pradesh International Trade Show[cite: 1, 5, 6]
         </div>
         
-        <!-- 4th Edition Badge -->
         <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-orange-100 border border-orange-300 text-upits-orange font-black text-[11px] mt-2 shadow-xs">
-          <span>4th Edition</span>
+          <span>4th Edition</span>[cite: 5, 6]
           <span class="w-1.5 h-1.5 rounded-full bg-upits-orange"></span>
           <span class="text-slate-700 font-bold">Greater Noida</span>[cite: 5, 6]
         </div>
 
-        <!-- Big Dual Logos Card with Partition Line -->
         <div class="mt-4 w-full max-w-[390px] bg-white rounded-3xl p-5 shadow-xl border border-orange-200/90 flex items-center justify-evenly">
           <div class="flex flex-col items-center max-w-[150px]">
             <img src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1780481420/yjrsvaizrmprlbrrdsde.png" alt="Khajani Welfare Society" class="h-20 w-auto object-contain drop-shadow-sm" />
@@ -187,7 +182,6 @@
           </div>
         </div>
 
-        <!-- Khajani Welfare Society Quote -->
         <div class="mt-4 px-2">
           <p class="text-[11px] text-slate-700 leading-relaxed font-semibold italic bg-white/80 p-3 rounded-2xl border border-orange-200 shadow-sm">
             "Khajani Welfare Society is committed to empowering communities through education, skill development, and self-reliant social initiatives."[cite: 6]
@@ -195,9 +189,8 @@
         </div>
       </div>
 
-      <!-- Action Area: Continue Button with Strict Rectangle Banner Below -->
       <div class="w-full flex flex-col items-center gap-4 z-20 pb-2">
-        <button onclick="navigateView('view-home')" class="w-full py-4 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white font-heading font-black rounded-2xl shadow-xl active:scale-[0.98] transition flex items-center justify-center gap-3 text-base tracking-wide border border-white/20">
+        <button type="button" onclick="navigateView('view-home')" class="w-full py-4 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white font-heading font-black rounded-2xl shadow-xl active:scale-[0.98] transition flex items-center justify-center gap-3 text-base tracking-wide border border-white/20 cursor-pointer">
           <span>CONTINUE</span>
           <i class="fa-solid fa-arrow-right text-sm"></i>
         </button>
@@ -226,7 +219,7 @@
             </div>
           </div>
 
-          <button onclick="openSettingsScreen()" title="Settings" class="w-11 h-11 rounded-2xl bg-slate-800 hover:bg-slate-700 active:scale-95 flex items-center justify-center transition border border-slate-600 shadow-lg">
+          <button onclick="openSettingsScreen()" title="Settings" class="w-11 h-11 rounded-2xl bg-slate-800 hover:bg-slate-700 active:scale-95 flex items-center justify-center transition border border-slate-600 shadow-lg cursor-pointer">
             <i class="fa-solid fa-gear text-lg text-white"></i>
           </button>
         </div>
@@ -236,11 +229,11 @@
           <div class="flex items-center justify-center gap-2 flex-wrap font-datefont">
             <span class="text-sm font-extrabold text-slate-800">September</span>
             
-            <button onclick="setSystemDate('25')" id="day-cell-25" class="w-8 h-8 rounded-lg badge-date-25 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95">25</button>
-            <button onclick="setSystemDate('26')" id="day-cell-26" class="w-8 h-8 rounded-lg badge-date-26 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95">26</button>
-            <button onclick="setSystemDate('27')" id="day-cell-27" class="w-8 h-8 rounded-lg badge-date-27 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95">27</button>
-            <button onclick="setSystemDate('28')" id="day-cell-28" class="w-8 h-8 rounded-lg badge-date-28 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95">28</button>
-            <button onclick="setSystemDate('29')" id="day-cell-29" class="w-8 h-8 rounded-lg badge-date-29 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95">29</button>
+            <button onclick="setSystemDate('25')" id="day-cell-25" class="w-8 h-8 rounded-lg badge-date-25 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95 cursor-pointer">25</button>
+            <button onclick="setSystemDate('26')" id="day-cell-26" class="w-8 h-8 rounded-lg badge-date-26 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95 cursor-pointer">26</button>
+            <button onclick="setSystemDate('27')" id="day-cell-27" class="w-8 h-8 rounded-lg badge-date-27 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95 cursor-pointer">27</button>
+            <button onclick="setSystemDate('28')" id="day-cell-28" class="w-8 h-8 rounded-lg badge-date-28 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95 cursor-pointer">28</button>
+            <button onclick="setSystemDate('29')" id="day-cell-29" class="w-8 h-8 rounded-lg badge-date-29 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95 cursor-pointer">29</button>
             
             <span class="text-sm font-extrabold text-slate-800">, 2026</span>
           </div>
@@ -587,6 +580,22 @@
           </div>
         </div>
 
+        <!-- Customizable Size Presets Configuration -->
+        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Poshak Size Presets</h3>
+            <span class="text-[10px] text-slate-400 font-bold">Manage Dropdown</span>
+          </div>
+          <p class="text-[11px] text-slate-500">Configure size options displayed when adding products.</p>
+          
+          <div class="flex gap-2">
+            <input type="text" id="setting-new-size" placeholder="e.g. 32 Inch, XL, Heavy Gher" class="flex-1 text-xs px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800" />
+            <button onclick="addNewSizeOption()" class="px-4 py-2.5 bg-slate-900 text-white text-xs font-bold rounded-xl active:scale-95 transition">Add Size</button>
+          </div>
+
+          <div id="setting-size-tags-container" class="flex flex-wrap gap-2 pt-1"></div>
+        </div>
+
         <!-- Default Catalog Filter Configuration -->
         <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
           <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Default Catalog Filter</h3>
@@ -668,13 +677,15 @@
             </div>
           </div>
 
+          <!-- Poshak Size: Preset Selector & Custom Size Typing -->
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">Poshak Size</label>
-            <button type="button" id="btn-size-g" onclick="toggleGSize()" class="w-full py-2.5 px-3 border rounded-xl text-xs font-black bg-orange-50 border-orange-300 text-orange-950 flex items-center justify-center gap-2">
-              <i class="fa-solid fa-check text-upits-orange" id="g-icon"></i>
-              <span>G (Circular)</span>[cite: 2]
-            </button>
-            <input type="hidden" id="prod-size" value="G (Circular)" />
+            <div class="flex gap-2 mb-2">
+              <select id="modal-size-select" onchange="handleModalSizeSelectChange()" class="flex-1 text-xs px-3.5 py-2 rounded-xl border border-slate-200 font-bold bg-white text-slate-800">
+                <!-- Injected Dynamically -->
+              </select>
+            </div>
+            <input type="text" id="prod-size" placeholder="Or type custom size directly (e.g. G (Circular), Free Size, 24 Inch)..." class="w-full text-xs px-3.5 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange font-semibold" />
           </div>
 
           <div>
@@ -733,12 +744,14 @@
 
     let products = [];
     let sales = [];
-    let systemDate = "25";[cite: 1]
+    let systemDate = "25";
     let currentFilter = "all";
     let activeChart = null;
     let selectedDetailProductId = null;
     let currentGraphMode = 'top-products';
+    let availableSizes = ["G (Circular)", "Standard", "Free Size", "Small", "Medium", "Large"];
 
+    // Global Bindings for HTML Attributes
     window.navigateView = navigateView;
     window.navigateToTab = navigateToTab;
     window.setFilter = setFilter;
@@ -756,7 +769,6 @@
     window.toggleGraphMode = toggleGraphMode;
     window.openSettingsScreen = openSettingsScreen;
     window.setSystemDate = setSystemDate;
-    window.toggleGSize = toggleGSize;
     window.deleteSaleEntry = deleteSaleEntry;
     window.generateFormalPDF = generateFormalPDF;
     window.exportToExcel = exportToExcel;
@@ -770,9 +782,73 @@
     window.backupAllDataJSON = backupAllDataJSON;
     window.mergeCurrentDuplicate = mergeCurrentDuplicate;
     window.transferDuplicateToOriginal = transferDuplicateToOriginal;
+    window.addNewSizeOption = addNewSizeOption;
+    window.removeSizeOption = removeSizeOption;
+    window.handleModalSizeSelectChange = handleModalSizeSelectChange;
+
+    function loadCustomSizes() {
+      try {
+        const stored = localStorage.getItem('upits_custom_sizes');
+        if (stored) {
+          availableSizes = JSON.parse(stored);
+        }
+      } catch (e) {}
+    }
+
+    function saveCustomSizes() {
+      try {
+        localStorage.setItem('upits_custom_sizes', JSON.stringify(availableSizes));
+      } catch (e) {}
+      renderSizePresetsUI();
+    }
+
+    function addNewSizeOption() {
+      const input = document.getElementById('setting-new-size');
+      const val = input.value.trim();
+      if (!val) return;
+      if (!availableSizes.includes(val)) {
+        availableSizes.push(val);
+        saveCustomSizes();
+      }
+      input.value = "";
+    }
+
+    function removeSizeOption(idx) {
+      if (availableSizes.length <= 1) {
+        alert("At least one size option must remain.");
+        return;
+      }
+      availableSizes.splice(idx, 1);
+      saveCustomSizes();
+    }
+
+    function renderSizePresetsUI() {
+      const container = document.getElementById('setting-size-tags-container');
+      if (container) {
+        container.innerHTML = availableSizes.map((s, idx) => `
+          <span class="inline-flex items-center gap-1.5 text-xs bg-white border border-slate-200 text-slate-800 px-3 py-1.5 rounded-xl font-bold shadow-xs">
+            ${s}
+            <button type="button" onclick="removeSizeOption(${idx})" class="text-rose-500 hover:text-rose-700 ml-1 font-black cursor-pointer">&times;</button>
+          </span>
+        `).join('');
+      }
+
+      const modalSelect = document.getElementById('modal-size-select');
+      if (modalSelect) {
+        modalSelect.innerHTML = `<option value="">-- Choose from preset sizes --</option>` + 
+          availableSizes.map(s => `<option value="${s}">${s}</option>`).join('');
+      }
+    }
+
+    function handleModalSizeSelectChange() {
+      const select = document.getElementById('modal-size-select');
+      const input = document.getElementById('prod-size');
+      if (select.value) {
+        input.value = select.value;
+      }
+    }
 
     function initFirestoreSync() {
-      // Real-time Firestore synchronization for products collection
       const prodCol = collection(db, "products");
       onSnapshot(prodCol, (snapshot) => {
         products = [];
@@ -784,10 +860,9 @@
           renderAnalyticsGraphs();
         }
       }, (err) => {
-        console.warn("Firestore product sync fallback:", err);
+        console.warn("Firestore product sync:", err);
       });
 
-      // Real-time Firestore synchronization for sales collection
       const salesCol = collection(db, "sales");
       onSnapshot(salesCol, (snapshot) => {
         sales = [];
@@ -798,7 +873,7 @@
           renderAnalyticsGraphs();
         }
       }, (err) => {
-        console.warn("Firestore sales sync fallback:", err);
+        console.warn("Firestore sales sync:", err);
       });
     }
 
@@ -908,25 +983,13 @@
       document.getElementById('form-add-product').reset();
       document.getElementById('upload-status').classList.add('hidden');
       document.getElementById('prod-size').value = "G (Circular)";
-      document.getElementById('g-icon').classList.remove('hidden');
+      renderSizePresetsUI();
       document.getElementById('modal-add-product').classList.remove('hidden');
     }
 
     function closeModal(modalId) {
       const el = document.getElementById(modalId);
       if (el) el.classList.add('hidden');
-    }
-
-    function toggleGSize() {
-      const input = document.getElementById('prod-size');
-      const icon = document.getElementById('g-icon');
-      if (input.value === "G (Circular)") {
-        input.value = "";
-        icon.classList.add('hidden');
-      } else {
-        input.value = "G (Circular)";
-        icon.classList.remove('hidden');
-      }
     }
 
     async function compressImage(file) {
@@ -1448,7 +1511,6 @@
           totalStock: updatedOrigTotal
         });
 
-        // Reassign sales in Firestore
         for (const s of sales) {
           if (s.productId === dupId) {
             await updateDoc(doc(db, "sales", s.id), {
@@ -1700,6 +1762,7 @@
       const prefSelect = document.getElementById('setting-default-filter');
       if (prefSelect) prefSelect.value = pref;
 
+      renderSizePresetsUI();
       navigateView('view-settings');
     }
 
@@ -1825,6 +1888,7 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      loadCustomSizes();
       initFirestoreSync();
       const activeDay = autoDetectTodayDate();
       setSystemDate(activeDay);
