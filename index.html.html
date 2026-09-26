@@ -16,7 +16,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <!-- Google Fonts: Space Grotesk, Outfit & Plus Jakarta Sans -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
@@ -125,9 +125,7 @@
 
   <main class="w-full max-w-md min-h-screen clean-white-screen relative flex flex-col shadow-2xl overflow-x-hidden border-x border-slate-800/40">
 
-    <!-- ======================================================== -->
-    <!-- 1. POSTER WELCOME SCREEN                                 -->
-    <!-- ======================================================== -->
+    <!-- 1. POSTER WELCOME SCREEN -->
     <section id="view-welcome" class="relative min-h-screen flex flex-col justify-between welcome-bg p-6 z-50 overflow-hidden select-none anim-pop-enter app-bottom-margin">
       <div class="absolute -top-16 -right-16 w-60 h-60 rounded-full bg-gradient-to-br from-orange-400/35 to-fuchsia-300/15 blur-3xl pointer-events-none"></div>
       <div class="absolute top-1/3 -left-20 w-64 h-64 rounded-full bg-gradient-to-tr from-purple-700/20 to-blue-500/15 blur-3xl pointer-events-none"></div>
@@ -154,34 +152,34 @@
         </h1>
 
         <div class="text-sm font-black tracking-wider uppercase text-slate-900 max-w-[340px] leading-tight">
-          Uttar Pradesh International Trade Show
+          Uttar Pradesh International Trade Show[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span)[span_2](start_span)[span_2](end_span)
         </div>
         
         <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-orange-100 border border-orange-300 text-upits-orange font-black text-[11px] mt-2 shadow-xs">
           <span>4th Edition</span>
           <span class="w-1.5 h-1.5 rounded-full bg-upits-orange"></span>
-          <span class="text-slate-700 font-bold">Greater Noida</span>
+          <span class="text-slate-700 font-bold">Greater Noida</span>[span_3](start_span)[span_3](end_span)[span_4](start_span)[span_4](end_span)
         </div>
 
         <div class="mt-4 w-full max-w-[390px] bg-white rounded-3xl p-5 shadow-xl border border-orange-200/90 flex items-center justify-evenly">
           <div class="flex flex-col items-center max-w-[150px]">
             <img src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1780481420/yjrsvaizrmprlbrrdsde.png" alt="Khajani Welfare Society" class="h-20 w-auto object-contain drop-shadow-sm" />
             <span class="text-xs font-black text-slate-900 mt-1.5 uppercase tracking-tight text-center leading-tight">Khajani Welfare Society</span>
-            <span class="text-[10px] text-slate-500 font-bold">Skills & Reform</span>
+            <span class="text-[10px] text-slate-500 font-bold">Skills & Reform</span>[span_5](start_span)[span_5](end_span)
           </div>
 
           <div class="w-[2.5px] h-20 bg-gradient-to-b from-transparent via-slate-300 to-transparent"></div>
 
           <div class="flex flex-col items-center max-w-[150px]">
             <img src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1790191456/UPITS-2026-logo-s-min_nfitgu.png" alt="UPITS 2026" class="h-20 w-auto object-contain drop-shadow-sm" />
-            <span class="text-xs font-black text-slate-900 mt-1.5 uppercase tracking-tight text-center leading-tight">25 - 29 Sep 2026</span>
-            <span class="text-[10px] text-slate-500 font-bold">India Expo Centre</span>
+            <span class="text-xs font-black text-slate-900 mt-1.5 uppercase tracking-tight text-center leading-tight">25 - 29 Sep 2026</span>[span_6](start_span)[span_6](end_span)[span_7](start_span)[span_7](end_span)
+            <span class="text-[10px] text-slate-500 font-bold">India Expo Centre</span>[span_8](start_span)[span_8](end_span)[span_9](start_span)[span_9](end_span)
           </div>
         </div>
 
         <div class="mt-4 px-2">
           <p class="text-[11px] text-slate-700 leading-relaxed font-semibold italic bg-white/80 p-3 rounded-2xl border border-orange-200 shadow-sm">
-            "Khajani Welfare Society is committed to empowering communities through education, skill development, and self-reliant social initiatives."
+            "Khajani Welfare Society is committed to empowering communities through education, skill development, and self-reliant social initiatives.[span_10](start_span)"[span_10](end_span)
           </p>
         </div>
       </div>
@@ -198,11 +196,8 @@
       </div>
     </section>
 
-    <!-- ======================================================== -->
-    <!-- 2. MAIN APPLICATION (Clean White Body Below Header)       -->
-    <!-- ======================================================== -->
+    <!-- 2. MAIN APPLICATION -->
     <section id="view-home" class="hidden flex-col flex-1 pb-24 clean-white-screen app-bottom-margin anim-pop-enter">
-      
       <header class="pro-header-bg text-white px-5 pt-6 pb-6 header-curved relative shadow-lg">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-3 bg-white px-3.5 py-1.5 rounded-2xl shadow-md border border-slate-200">
@@ -248,7 +243,7 @@
             type="text" 
             id="search-input"
             oninput="renderProductCatalog()" 
-            placeholder="Search items by name or size instantly..." 
+            placeholder="Search items by name or size..." 
             class="w-full pl-11 pr-4 py-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-upits-orange shadow-sm placeholder:text-slate-400"
           />
         </div>
@@ -295,16 +290,28 @@
           <div class="flex items-center justify-between border-b border-slate-200 pb-3">
             <div>
               <h2 class="text-base font-black text-slate-900">New Sale</h2>
-              <p class="text-xs text-slate-400 font-medium">Record sale with optional discount or extra</p>
+              <p class="text-xs text-slate-400 font-medium">Record sale transaction with exact time</p>
             </div>
           </div>
 
           <form id="form-add-sale" onsubmit="handleSaleSubmit(event)" class="space-y-4">
             <div>
-              <label class="block text-xs font-black text-slate-800 mb-1.5">Select Item & Size <span class="text-rose-600">*</span></label>
+              <label class="block text-xs font-black text-slate-800 mb-1.5">Select Product <span class="text-rose-600">*</span></label>
               <select id="sale-product-select" onchange="handleSaleProductSelect()" required class="w-full text-sm px-4 py-3.5 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange bg-white font-bold text-slate-800">
                 <option value="">-- Choose item --</option>
               </select>
+            </div>
+
+            <!-- Size Selector: Populated only if product has variants -->
+            <div id="sale-size-section" class="hidden">
+              <label class="block text-xs font-black text-slate-800 mb-1.5">Select Size / Variant</label>
+              <select id="sale-size-select" onchange="handleSaleSizeSelect()" class="w-full text-sm px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange bg-white font-bold text-slate-800">
+              </select>
+            </div>
+
+            <div id="sale-size-manual-section">
+              <label class="block text-xs font-bold text-slate-700 mb-1">Size Tag (Optional)</label>
+              <input type="text" id="sale-size-manual" placeholder="e.g. Free Size, Standard..." class="w-full text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white font-bold text-slate-800" />
             </div>
 
             <div class="grid grid-cols-2 gap-3">
@@ -318,14 +325,28 @@
               </div>
             </div>
 
-            <!-- Discount and Extra Charge (Optional) -->
+            <!-- Compulsory Payment Mode: Cash or Online -->
+            <div>
+              <label class="block text-xs font-black text-slate-800 mb-1.5">Payment Mode <span class="text-rose-600">*</span></label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="flex items-center justify-center gap-2 p-3 bg-white border border-slate-200 rounded-2xl cursor-pointer hover:border-slate-300 font-bold text-xs">
+                  <input type="radio" name="payment-mode" value="Cash" checked class="text-upits-orange focus:ring-upits-orange" />
+                  <span>💵 Cash</span>
+                </label>
+                <label class="flex items-center justify-center gap-2 p-3 bg-white border border-slate-200 rounded-2xl cursor-pointer hover:border-slate-300 font-bold text-xs">
+                  <input type="radio" name="payment-mode" value="Online" class="text-upits-orange focus:ring-upits-orange" />
+                  <span>📲 Online / UPI</span>
+                </label>
+              </div>
+            </div>
+
             <div class="grid grid-cols-2 gap-3">
               <div>
-                <label class="block text-xs font-bold text-rose-700 mb-1">Discount Amount (₹)</label>
+                <label class="block text-xs font-bold text-rose-700 mb-1">Discount (₹)</label>
                 <input type="number" id="sale-discount" oninput="calculateSaleTotal()" min="0" step="0.01" placeholder="Optional" class="w-full text-sm px-3.5 py-2.5 rounded-xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 font-bold bg-white text-rose-900" />
               </div>
               <div>
-                <label class="block text-xs font-bold text-emerald-800 mb-1">Extra Charge (₹)</label>
+                <label class="block text-xs font-bold text-emerald-800 mb-1">Extra (₹)</label>
                 <input type="number" id="sale-extra" oninput="calculateSaleTotal()" min="0" step="0.01" placeholder="Optional" class="w-full text-sm px-3.5 py-2.5 rounded-xl border border-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 font-bold bg-white text-emerald-900" />
               </div>
             </div>
@@ -361,7 +382,7 @@
         </div>
       </div>
 
-      <!-- TAB 3: RECORDS (Professional Sales List Separated ONLY by Dates Header) -->
+      <!-- TAB 3: RECORDS -->
       <div id="tab-records" class="hidden anim-pop-enter px-5 mt-4 space-y-4 clean-white-screen">
         <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex items-center justify-between shadow-sm">
           <div>
@@ -374,7 +395,6 @@
           </div>
         </div>
 
-        <!-- Professional Chronological Grouped List -->
         <div id="sales-records-list" class="space-y-4 pb-8"></div>
 
         <div id="sales-empty" class="hidden text-center py-16">
@@ -450,12 +470,16 @@
       <div class="p-6 -mt-8 relative z-10 space-y-5 bg-white">
         <div>
           <div class="flex items-center gap-2 mb-2 flex-wrap">
-            <span id="detail-size-tag" class="hidden bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-md"></span>
             <span id="detail-stock-status" class="text-[11px] font-black px-3 py-1 rounded-md bg-emerald-100 text-emerald-800">In Stock</span>
-            <span id="detail-duplicate-badge" class="hidden text-[11px] font-black px-3 py-1 rounded-md bg-amber-100 text-amber-900 border border-amber-300">Duplicate Issue Detected</span>
+            <span id="detail-duplicate-badge" class="hidden text-[11px] font-black px-3 py-1 rounded-md bg-amber-100 text-amber-900 border border-amber-300">Duplicate Detected</span>
           </div>
           <h1 id="detail-name" class="text-2xl font-black font-heading text-slate-900 leading-tight">Product Name</h1>
           <div class="text-3xl font-black text-upits-orange mt-1.5" id="detail-price">₹ 0.00</div>
+        </div>
+
+        <div id="detail-variants-card" class="hidden bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-2">
+          <div class="text-xs font-black text-slate-800 uppercase tracking-wider">Sizes & Price Tiers</div>
+          <div id="detail-variants-list" class="flex flex-wrap gap-2 pt-1"></div>
         </div>
 
         <div id="detail-merge-panel" class="hidden bg-amber-50 border border-amber-300 p-4 rounded-2xl space-y-2">
@@ -463,15 +487,14 @@
             <i class="fa-solid fa-triangle-exclamation text-amber-600"></i> Duplicate Item Detected
           </div>
           <p class="text-[11px] text-amber-800 leading-relaxed font-medium">
-            This item has the identical Name, Price, and Size as another existing item. You can transfer all sales recorded under this item into the original and remove this duplicate.
+            This item has an identical counterpart. You can transfer sales recorded under this item into the original and remove this duplicate.
           </p>
           <button id="btn-merge-duplicate" onclick="mergeCurrentDuplicate()" class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white font-black text-xs rounded-xl shadow transition active:scale-95 flex items-center justify-center gap-2">
             <i class="fa-solid fa-code-merge"></i> Transfer Sales to Original & Delete Duplicate
           </button>
         </div>
 
-        <p id="detail-description" class="text-xs text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-2xl border border-slate-200 font-medium hidden">
-        </p>
+        <p id="detail-description" class="text-xs text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-2xl border border-slate-200 font-medium hidden"></p>
 
         <div class="grid grid-cols-3 gap-2.5 text-center">
           <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200">
@@ -488,7 +511,6 @@
           </div>
         </div>
 
-        <!-- Stock Adjustment -->
         <div class="bg-slate-50 border border-slate-200 p-5 rounded-3xl space-y-3">
           <div class="flex items-center justify-between">
             <h3 class="text-xs font-black uppercase tracking-wider text-slate-800 flex items-center gap-2">
@@ -511,21 +533,6 @@
           <button onclick="saveDetailStockChanges()" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-black shadow transition active:scale-95">
             Save Stock
           </button>
-        </div>
-
-        <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-bold text-amber-950 flex items-center gap-2">
-              <i class="fa-solid fa-bell text-amber-600"></i> Low Stock Alert Limit
-            </span>
-            <span id="detail-alert-value" class="text-xs font-black text-amber-950">5 units</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <input type="number" id="input-low-stock-threshold" min="0" value="5" class="w-24 px-3 py-2 text-xs bg-white rounded-xl border border-amber-300 font-black text-center" />
-            <button onclick="saveLowStockThreshold()" class="flex-1 py-2 bg-amber-700 hover:bg-amber-800 text-white rounded-xl text-xs font-extrabold transition active:scale-95">
-              Save Alert
-            </button>
-          </div>
         </div>
 
         <div class="bg-white border border-slate-200 p-5 rounded-3xl space-y-4 shadow-sm">
@@ -578,16 +585,15 @@
           </div>
         </div>
 
-        <!-- Size Presets with Custom Add/Remove and Default "G" Configuration -->
         <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
           <div class="flex items-center justify-between">
-            <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Custom Size Presets</h3>
-            <span class="text-[10px] text-slate-400 font-bold">Dropdown Settings</span>
+            <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Default Quick Sizes</h3>
+            <span class="text-[10px] text-slate-400 font-bold">Preset Manager</span>
           </div>
-          <p class="text-[11px] text-slate-500">Add or manage general item sizes (when G is selected, optional number tag can be attached).</p>
+          <p class="text-[11px] text-slate-500">Global size options available when creating product size-price tiers.</p>
           
           <div class="flex gap-2">
-            <input type="text" id="setting-new-size" placeholder="e.g. XL, 32 Inch, Free Size, Set" class="flex-1 text-xs px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800" />
+            <input type="text" id="setting-new-size" placeholder="e.g. Free Size, 32 Inch, XL, Set" class="flex-1 text-xs px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800" />
             <button onclick="addNewSizeOption()" class="px-4 py-2.5 bg-slate-900 text-white text-xs font-bold rounded-xl active:scale-95 transition">Add Size</button>
           </div>
 
@@ -633,7 +639,7 @@
       </div>
     </section>
 
-    <!-- MODAL: ADD STOCK ENTRY -->
+    <!-- MODAL: ADD PRODUCT -->
     <div id="modal-add-product" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
       <div class="bg-white rounded-t-3xl sm:rounded-3xl w-full max-w-md p-6 max-h-[90vh] overflow-y-auto custom-scrollbar">
         <div class="flex items-center justify-between pb-3 border-b border-slate-200">
@@ -651,7 +657,7 @@
 
           <div class="grid grid-cols-2 gap-2">
             <div>
-              <label class="block text-xs font-bold text-slate-800 mb-1">Price (₹) <span class="text-rose-600">*</span></label>
+              <label class="block text-xs font-bold text-slate-800 mb-1">Base Price (₹) <span class="text-rose-600">*</span></label>
               <input type="number" id="prod-price" required step="0.01" min="0" placeholder="0.00" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange font-black" />
             </div>
             <div>
@@ -660,32 +666,28 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-2 gap-2">
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">Total Stock (Optional)</label>
-              <input type="number" id="prod-total-stock" min="0" placeholder="0" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange font-bold" />
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">Alert Limit</label>
-              <input type="number" id="prod-alert" value="5" min="1" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange font-bold" />
-            </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Total Stock (Optional)</label>
+            <input type="number" id="prod-total-stock" min="0" placeholder="0" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange font-bold" />
           </div>
 
-          <!-- Dynamic Item Size Selection: Supports G with Optional Number and Other Sizes -->
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Item Size</label>
-            <div class="flex gap-2 mb-2">
-              <select id="modal-size-select" onchange="handleModalSizeSelectChange()" class="flex-1 text-xs px-3.5 py-2 rounded-xl border border-slate-200 font-bold bg-white text-slate-800">
-              </select>
+          <!-- Non-compulsory Size-Price Variation Builder -->
+          <div class="border border-slate-200 bg-slate-50/70 p-3.5 rounded-2xl space-y-2">
+            <div class="flex items-center justify-between">
+              <label class="text-xs font-black text-slate-800 uppercase tracking-tight">Add Sizes & Specific Rates (Optional)</label>
+              <span class="text-[10px] text-slate-400 font-bold">Different Prices per Size</span>
             </div>
+            <p class="text-[11px] text-slate-500">Pick or type a size and give it a dedicated price tier.</p>
             
-            <!-- Conditional number input if G is selected (Not compulsory) -->
-            <div id="g-number-wrapper" class="hidden mb-2">
-              <label class="block text-[11px] font-bold text-purple-900 mb-0.5">G Number / Tag (Optional)</label>
-              <input type="text" id="prod-g-number" oninput="syncFinalSizeValue()" placeholder="e.g. No. 4, G-2, 6" class="w-full text-xs px-3.5 py-2 rounded-xl border border-purple-200 bg-purple-50/50 font-bold text-purple-950 focus:outline-none focus:ring-2 focus:ring-purple-400" />
+            <div class="flex gap-2">
+              <select id="modal-size-preset-picker" onchange="handleModalPresetChange()" class="w-1/3 text-xs px-2.5 py-2 rounded-xl border border-slate-200 bg-white font-bold text-slate-800">
+              </select>
+              <input type="text" id="modal-new-size-name" placeholder="Size (e.g. XL, 32)" class="w-1/3 text-xs px-2.5 py-2 rounded-xl border border-slate-200 bg-white font-bold text-slate-800" />
+              <input type="number" id="modal-new-size-price" step="0.01" min="0" placeholder="Price ₹" class="w-1/4 text-xs px-2.5 py-2 rounded-xl border border-slate-200 bg-white font-bold text-slate-800" />
+              <button type="button" onclick="addSizePriceRow()" class="px-3 py-2 bg-slate-900 text-white rounded-xl text-xs font-black active:scale-95 transition">+</button>
             </div>
 
-            <input type="text" id="prod-size" placeholder="Or custom size (e.g. Free Size, 24 Inch, M, XL)..." class="w-full text-xs px-3.5 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange font-semibold" />
+            <div id="modal-added-sizes-list" class="flex flex-wrap gap-2 pt-1"></div>
           </div>
 
           <div>
@@ -707,6 +709,76 @@
             </button>
           </div>
         </form>
+      </div>
+    </div>
+
+    <!-- MODAL: DETAILED BILL RECEIPT (Shows on Click) -->
+    <div id="modal-bill-receipt" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl w-full max-w-sm p-6 shadow-2xl space-y-4 border border-slate-200 anim-pop-enter">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm font-black">
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <div>
+              <h3 class="font-black text-sm text-slate-900 leading-tight">Sale Receipt</h3>
+              <span id="receipt-date-time" class="text-[10px] text-slate-400 font-bold block"></span>
+            </div>
+          </div>
+          <button onclick="closeModal('modal-bill-receipt')" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-2xl space-y-2.5 text-xs">
+          <div class="flex justify-between">
+            <span class="text-slate-500">Product:</span>
+            <span id="receipt-item-name" class="font-black text-slate-900 text-right"></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Size / Tag:</span>
+            <span id="receipt-item-size" class="font-bold text-slate-800"></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Quantity:</span>
+            <span id="receipt-item-qty" class="font-bold text-slate-800"></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Unit Price:</span>
+            <span id="receipt-item-price" class="font-bold text-slate-800"></span>
+          </div>
+          <div id="receipt-discount-row" class="flex justify-between text-rose-600">
+            <span>Discount:</span>
+            <span id="receipt-item-discount" class="font-bold"></span>
+          </div>
+          <div id="receipt-extra-row" class="flex justify-between text-emerald-700">
+            <span>Extra Charge:</span>
+            <span id="receipt-item-extra" class="font-bold"></span>
+          </div>
+          <div class="flex justify-between border-t border-slate-200 pt-2 text-sm font-black">
+            <span class="text-slate-900">Total Paid:</span>
+            <span id="receipt-grand-total" class="text-emerald-600"></span>
+          </div>
+        </div>
+
+        <div class="text-[11px] text-slate-500 space-y-1 bg-slate-50 p-3 rounded-xl border border-slate-100">
+          <div class="flex justify-between">
+            <span>Payment Mode:</span>
+            <span id="receipt-payment-mode" class="font-black text-slate-800"></span>
+          </div>
+          <div class="flex justify-between">
+            <span>Customer:</span>
+            <span id="receipt-customer-name" class="font-bold text-slate-800"></span>
+          </div>
+          <div class="flex justify-between">
+            <span>Contact:</span>
+            <span id="receipt-customer-phone" class="font-bold text-slate-800"></span>
+          </div>
+        </div>
+
+        <button onclick="closeModal('modal-bill-receipt')" class="w-full py-3 bg-slate-900 text-white rounded-xl text-xs font-black shadow active:scale-95 transition">
+          Close Receipt
+        </button>
       </div>
     </div>
 
@@ -749,6 +821,7 @@
     let selectedDetailProductId = null;
     let currentGraphMode = 'top-products';
     let availableSizes = ["G", "Standard", "Free Size", "Small", "Medium", "Large", "XL"];
+    let temporaryModalVariants = [];
 
     window.navigateView = navigateView;
     window.navigateToTab = navigateToTab;
@@ -758,10 +831,10 @@
     window.handleProductSubmit = handleProductSubmit;
     window.handleSaleSubmit = handleSaleSubmit;
     window.handleSaleProductSelect = handleSaleProductSelect;
+    window.handleSaleSizeSelect = handleSaleSizeSelect;
     window.calculateSaleTotal = calculateSaleTotal;
     window.openProductDetail = openProductDetail;
     window.toggleDetailFavorite = toggleDetailFavorite;
-    window.saveLowStockThreshold = saveLowStockThreshold;
     window.saveDetailStockChanges = saveDetailStockChanges;
     window.startSaleFromDetail = startSaleFromDetail;
     window.toggleGraphMode = toggleGraphMode;
@@ -782,8 +855,10 @@
     window.transferDuplicateToOriginal = transferDuplicateToOriginal;
     window.addNewSizeOption = addNewSizeOption;
     window.removeSizeOption = removeSizeOption;
-    window.handleModalSizeSelectChange = handleModalSizeSelectChange;
-    window.syncFinalSizeValue = syncFinalSizeValue;
+    window.handleModalPresetChange = handleModalPresetChange;
+    window.addSizePriceRow = addSizePriceRow;
+    window.removeModalVariant = removeModalVariant;
+    window.openBillReceipt = openBillReceipt;
 
     function loadCustomSizes() {
       try {
@@ -832,39 +907,58 @@
         `).join('');
       }
 
-      const modalSelect = document.getElementById('modal-size-select');
-      if (modalSelect) {
-        modalSelect.innerHTML = `<option value="">-- Choose from preset sizes --</option>` + 
+      const modalPresetPicker = document.getElementById('modal-size-preset-picker');
+      if (modalPresetPicker) {
+        modalPresetPicker.innerHTML = `<option value="">-- Preset --</option>` + 
           availableSizes.map(s => `<option value="${s}">${s}</option>`).join('');
       }
     }
 
-    function handleModalSizeSelectChange() {
-      const select = document.getElementById('modal-size-select');
-      const gWrapper = document.getElementById('g-number-wrapper');
-      const isG = (select.value === 'G' || select.value === 'G (Circular)');
-      
-      if (isG) {
-        gWrapper.classList.remove('hidden');
-      } else {
-        gWrapper.classList.add('hidden');
-        document.getElementById('prod-g-number').value = '';
+    function handleModalPresetChange() {
+      const picker = document.getElementById('modal-size-preset-picker');
+      const nameInput = document.getElementById('modal-new-size-name');
+      if (picker.value) {
+        nameInput.value = picker.value;
       }
-      syncFinalSizeValue();
     }
 
-    function syncFinalSizeValue() {
-      const select = document.getElementById('modal-size-select');
-      const gNumInput = document.getElementById('prod-g-number');
-      const finalInput = document.getElementById('prod-size');
-      const isG = (select.value === 'G' || select.value === 'G (Circular)');
+    function addSizePriceRow() {
+      const nameInput = document.getElementById('modal-new-size-name');
+      const priceInput = document.getElementById('modal-new-size-price');
+      const basePriceInput = document.getElementById('prod-price');
 
-      if (isG) {
-        const numVal = gNumInput.value.trim();
-        finalInput.value = numVal ? `G (${numVal})` : 'G';
-      } else if (select.value) {
-        finalInput.value = select.value;
+      const sizeName = nameInput.value.trim();
+      const sizePrice = parseFloat(priceInput.value) || parseFloat(basePriceInput.value) || 0;
+
+      if (!sizeName) {
+        alert("Enter or select a size name.");
+        return;
       }
+
+      temporaryModalVariants.push({
+        size: sizeName,
+        price: sizePrice
+      });
+
+      nameInput.value = "";
+      priceInput.value = "";
+      renderAddedSizesList();
+    }
+
+    function removeModalVariant(idx) {
+      temporaryModalVariants.splice(idx, 1);
+      renderAddedSizesList();
+    }
+
+    function renderAddedSizesList() {
+      const listContainer = document.getElementById('modal-added-sizes-list');
+      if (!listContainer) return;
+      listContainer.innerHTML = temporaryModalVariants.map((v, i) => `
+        <span class="inline-flex items-center gap-1.5 text-xs bg-white border border-slate-300 text-slate-800 px-2.5 py-1 rounded-xl font-bold shadow-xs">
+          ${v.size} (₹${v.price.toFixed(2)})
+          <button type="button" onclick="removeModalVariant(${i})" class="text-rose-500 font-black hover:text-rose-700 ml-1">&times;</button>
+        </span>
+      `).join('');
     }
 
     function initFirestoreSync() {
@@ -909,16 +1003,14 @@
       if (!targetProd) return null;
       const targetName = (targetProd.name || "").trim().toLowerCase();
       const targetPrice = parseFloat(targetProd.price) || 0;
-      const targetSize = (targetProd.size || "").trim().toLowerCase();
 
       for (let i = 0; i < products.length; i++) {
         const p = products[i];
         if (p.id !== targetProd.id) {
           const pName = (p.name || "").trim().toLowerCase();
           const pPrice = parseFloat(p.price) || 0;
-          const pSize = (p.size || "").trim().toLowerCase();
 
-          if (pName === targetName && Math.abs(pPrice - targetPrice) < 0.01 && pSize === targetSize) {
+          if (pName === targetName && Math.abs(pPrice - targetPrice) < 0.01) {
             return p;
           }
         }
@@ -1001,8 +1093,8 @@
     function openAddProductModal() {
       document.getElementById('form-add-product').reset();
       document.getElementById('upload-status').classList.add('hidden');
-      document.getElementById('g-number-wrapper').classList.add('hidden');
-      document.getElementById('prod-size').value = "";
+      temporaryModalVariants = [];
+      renderAddedSizesList();
       renderSizePresetsUI();
       document.getElementById('modal-add-product').classList.remove('hidden');
     }
@@ -1077,8 +1169,6 @@
       const openingStock = openingStockInput !== "" ? parseInt(openingStockInput) : 0;
       const totalStockInput = document.getElementById('prod-total-stock').value;
       const totalStock = totalStockInput !== "" ? parseInt(totalStockInput) : openingStock;
-      const size = document.getElementById('prod-size').value.trim();
-      const lowStockCount = parseInt(document.getElementById('prod-alert').value) || 5;
       const desc = document.getElementById('prod-desc').value.trim();
       const imgInput = document.getElementById('prod-image-file');
 
@@ -1095,8 +1185,7 @@
         totalStock,
         quantity: openingStock,
         soldCount: 0,
-        size: size || "",
-        lowStockCount,
+        variants: temporaryModalVariants.slice(),
         description: desc || "",
         imageUrl: imageUrl || "",
         isFavorite: false
@@ -1124,30 +1213,65 @@
       products.forEach(p => {
         const opt = document.createElement('option');
         opt.value = p.id;
-        opt.textContent = `${p.name} ${p.size ? `[${p.size}]` : ''} — ₹${p.price.toFixed(2)} (${p.quantity} Left)`;
+        opt.textContent = `${p.name} — Base ₹${p.price.toFixed(2)} (${p.quantity} Left)`;
         select.appendChild(opt);
         if (p.id === prev) stillExists = true;
       });
 
       if (stillExists) {
         select.value = prev;
+        handleSaleProductSelect();
       } else {
         select.value = "";
         document.getElementById('sale-price').value = "";
         document.getElementById('sale-available-stock').textContent = "--";
         document.getElementById('sale-total-display').textContent = "₹ 0.00";
+        document.getElementById('sale-size-section').classList.add('hidden');
+        document.getElementById('sale-size-manual-section').classList.remove('hidden');
       }
     }
 
     function handleSaleProductSelect() {
       const pid = document.getElementById('sale-product-select').value;
       const prod = products.find(p => p.id === pid);
+      const sizeSection = document.getElementById('sale-size-section');
+      const manualSizeSection = document.getElementById('sale-size-manual-section');
+      const sizeSelect = document.getElementById('sale-size-select');
+
       if (prod) {
-        document.getElementById('sale-price').value = prod.price;
         document.getElementById('sale-available-stock').textContent = prod.quantity + ' units';
+
+        if (prod.variants && prod.variants.length > 0) {
+          sizeSection.classList.remove('hidden');
+          manualSizeSection.classList.add('hidden');
+
+          sizeSelect.innerHTML = `<option value="base" data-price="${prod.price}">Base Size — ₹${prod.price.toFixed(2)}</option>` +
+            prod.variants.map((v) => `
+              <option value="${v.size}" data-price="${v.price}">${v.size} — ₹${v.price.toFixed(2)}</option>
+            `).join('');
+
+          handleSaleSizeSelect();
+        } else {
+          sizeSection.classList.add('hidden');
+          manualSizeSection.classList.remove('hidden');
+          document.getElementById('sale-price').value = prod.price;
+          calculateSaleTotal();
+        }
       } else {
         document.getElementById('sale-price').value = "";
         document.getElementById('sale-available-stock').textContent = "--";
+        sizeSection.classList.add('hidden');
+        manualSizeSection.classList.remove('hidden');
+        calculateSaleTotal();
+      }
+    }
+
+    function handleSaleSizeSelect() {
+      const sizeSelect = document.getElementById('sale-size-select');
+      const selectedOption = sizeSelect.options[sizeSelect.selectedIndex];
+      if (selectedOption) {
+        const price = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+        document.getElementById('sale-price').value = price;
       }
       calculateSaleTotal();
     }
@@ -1171,6 +1295,10 @@
       const extra = parseFloat(document.getElementById('sale-extra').value) || 0;
       const cName = document.getElementById('sale-customer-name').value.trim();
       const cPhone = document.getElementById('sale-customer-phone').value.trim();
+      
+      // Selected Payment Mode (Compulsory)
+      const paymentModeEl = document.querySelector('input[name="payment-mode"]:checked');
+      const paymentMode = paymentModeEl ? paymentModeEl.value : 'Cash';
 
       const prod = products.find(p => p.id === pid);
       if (!prod) {
@@ -1183,23 +1311,38 @@
         return;
       }
 
-      const subtotal = prod.price * qty;
+      let chosenSize = "";
+      if (prod.variants && prod.variants.length > 0) {
+        const sizeSelect = document.getElementById('sale-size-select');
+        chosenSize = sizeSelect.value === 'base' ? 'Standard' : sizeSelect.value;
+      } else {
+        chosenSize = document.getElementById('sale-size-manual').value.trim() || 'Standard';
+      }
+
+      const unitPrice = parseFloat(document.getElementById('sale-price').value) || prod.price;
+      const subtotal = unitPrice * qty;
       const totalBill = Math.max(0, subtotal - discount + extra);
       const saleId = "s-" + Date.now();
+
+      // Format Sale Time: e.g. 10:45 AM
+      const now = new Date();
+      const saleTimeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
       const saleItem = {
         productId: prod.id,
         productName: prod.name,
-        productSize: prod.size || "",
-        unitPrice: prod.price,
+        productSize: chosenSize,
+        unitPrice: unitPrice,
         quantity: qty,
         discountAmount: discount,
         extraCharge: extra,
         totalAmount: totalBill,
+        paymentMode: paymentMode,
         date: systemDate,
+        time: saleTimeStr,
         customerName: cName || "Walk-in",
         customerContact: cPhone || "",
-        timestamp: new Date().toISOString()
+        timestamp: now.toISOString()
       };
 
       const newQty = prod.quantity - qty;
@@ -1221,6 +1364,8 @@
       document.getElementById('sale-extra').value = "";
       document.getElementById('sale-available-stock').textContent = "--";
       document.getElementById('sale-total-display').textContent = "₹ 0.00";
+      document.getElementById('sale-size-section').classList.add('hidden');
+      document.getElementById('sale-size-manual-section').classList.remove('hidden');
 
       navigateToTab('tab-records');
     }
@@ -1257,8 +1402,8 @@
       if (searchVal) {
         filtered = filtered.filter(p => {
           const nameMatches = (p.name || "").toLowerCase().indexOf(searchVal) !== -1;
-          const sizeMatches = p.size && p.size.toLowerCase().indexOf(searchVal) !== -1;
-          return nameMatches || sizeMatches;
+          const variantMatches = p.variants && p.variants.some(v => v.size.toLowerCase().indexOf(searchVal) !== -1);
+          return nameMatches || variantMatches;
         });
       }
 
@@ -1282,7 +1427,7 @@
       emptyBox.classList.add('hidden');
 
       grid.innerHTML = filtered.map(p => {
-        const isLow = p.quantity <= (p.lowStockCount || 5);
+        const isLow = p.quantity <= 3;
         const duplicateOriginal = findDuplicateMatch(p);
 
         return `
@@ -1298,7 +1443,7 @@
                 <div class="min-w-0">
                   <div class="flex items-center gap-2 flex-wrap">
                     <h4 class="text-sm font-black text-slate-900 truncate">${p.name}</h4>
-                    ${p.size ? `<span class="text-[10px] font-black bg-orange-100 text-orange-950 px-2 py-0.5 rounded-md border border-orange-200">${p.size}</span>` : ''}
+                    ${p.variants && p.variants.length > 0 ? `<span class="text-[10px] font-black bg-purple-100 text-purple-950 px-2 py-0.5 rounded-md border border-purple-200">${p.variants.length} Sizes</span>` : ''}
                     ${duplicateOriginal ? `<span class="text-[9px] font-black bg-amber-200 text-amber-900 px-2 py-0.5 rounded-md border border-amber-300">Duplicate</span>` : ''}
                   </div>
                   <div class="text-base font-black text-upits-orange mt-0.5">₹ ${p.price.toFixed(2)}</div>
@@ -1372,12 +1517,17 @@
       document.getElementById('input-edit-opening-stock').value = "";
       document.getElementById('input-edit-total-stock').value = "";
 
-      const sizeTag = document.getElementById('detail-size-tag');
-      if (prod.size) {
-        sizeTag.textContent = 'Size: ' + prod.size;
-        sizeTag.classList.remove('hidden');
+      const variantsCard = document.getElementById('detail-variants-card');
+      const variantsList = document.getElementById('detail-variants-list');
+      if (prod.variants && prod.variants.length > 0) {
+        variantsCard.classList.remove('hidden');
+        variantsList.innerHTML = prod.variants.map(v => `
+          <span class="inline-flex items-center gap-1.5 text-xs bg-white border border-slate-200 text-slate-800 px-3 py-1.5 rounded-xl font-bold shadow-xs">
+            ${v.size} <span class="text-upits-orange font-black">₹${v.price.toFixed(2)}</span>
+          </span>
+        `).join('');
       } else {
-        sizeTag.classList.add('hidden');
+        variantsCard.classList.add('hidden');
       }
 
       const duplicateOriginal = findDuplicateMatch(prod);
@@ -1406,15 +1556,12 @@
       const favBtn = document.getElementById('detail-favorite-btn');
       favBtn.innerHTML = `<i class="fa-solid fa-heart ${prod.isFavorite ? 'text-trade-red' : 'text-slate-300'}"></i>`;
 
-      document.getElementById('detail-alert-value').textContent = (prod.lowStockCount || 5) + ' units';
-      document.getElementById('input-low-stock-threshold').value = prod.lowStockCount || 5;
-
       const status = document.getElementById('detail-stock-status');
       if (prod.quantity <= 0) {
         status.textContent = "Out of Stock";
         status.className = "text-xs font-black px-3 py-1 rounded bg-rose-100 text-rose-800";
-      } else if (prod.quantity <= (prod.lowStockCount || 5)) {
-        status.textContent = "Low Stock Alert";
+      } else if (prod.quantity <= 3) {
+        status.textContent = "Low Stock";
         status.className = "text-xs font-black px-3 py-1 rounded bg-amber-100 text-amber-800";
       } else {
         status.textContent = "In Stock";
@@ -1456,16 +1603,6 @@
         }
       } else {
         alert("No stock entered.");
-      }
-    }
-
-    async function saveLowStockThreshold() {
-      const val = parseInt(document.getElementById('input-low-stock-threshold').value) || 5;
-      try {
-        await updateDoc(doc(db, "products", selectedDetailProductId), { lowStockCount: val });
-        alert("Alert limit saved.");
-      } catch (e) {
-        console.warn("Firestore threshold update error:", e);
       }
     }
 
@@ -1623,7 +1760,41 @@
       if (uEl) uEl.textContent = units;
     }
 
-    // Professional Chronological Grouped List: Separated ONLY by Dates Header
+    // Interactive Detailed Receipt Display
+    function openBillReceipt(saleId) {
+      const s = sales.find(item => item.id === saleId);
+      if (!s) return;
+
+      document.getElementById('receipt-date-time').textContent = `Date: ${s.date} Sep 2026 • Time: ${s.time || 'Counter'}`;
+      document.getElementById('receipt-item-name').textContent = s.productName;
+      document.getElementById('receipt-item-size').textContent = s.productSize || 'Standard';
+      document.getElementById('receipt-item-qty').textContent = `${s.quantity} units`;
+      document.getElementById('receipt-item-price').textContent = `₹ ${s.unitPrice.toFixed(2)}`;
+      
+      const discRow = document.getElementById('receipt-discount-row');
+      if (s.discountAmount && s.discountAmount > 0) {
+        discRow.classList.remove('hidden');
+        document.getElementById('receipt-item-discount').textContent = `- ₹ ${s.discountAmount.toFixed(2)}`;
+      } else {
+        discRow.classList.add('hidden');
+      }
+
+      const extraRow = document.getElementById('receipt-extra-row');
+      if (s.extraCharge && s.extraCharge > 0) {
+        extraRow.classList.remove('hidden');
+        document.getElementById('receipt-item-extra').textContent = `+ ₹ ${s.extraCharge.toFixed(2)}`;
+      } else {
+        extraRow.classList.add('hidden');
+      }
+
+      document.getElementById('receipt-grand-total').textContent = `₹ ${s.totalAmount.toFixed(2)}`;
+      document.getElementById('receipt-payment-mode').textContent = s.paymentMode || 'Cash';
+      document.getElementById('receipt-customer-name').textContent = s.customerName || 'Walk-in Customer';
+      document.getElementById('receipt-customer-phone').textContent = s.customerContact || 'N/A';
+
+      document.getElementById('modal-bill-receipt').classList.remove('hidden');
+    }
+
     function renderManageSalesList() {
       const container = document.getElementById('sales-records-list');
       const emptyBox = document.getElementById('sales-empty');
@@ -1641,7 +1812,6 @@
       }
       emptyBox.classList.add('hidden');
 
-      // Group by official dates (25, 26, 27, 28, 29)
       const officialDates = ['25', '26', '27', '28', '29'];
       let outputHtml = '';
 
@@ -1652,7 +1822,7 @@
           
           outputHtml += `
             <div class="space-y-2">
-              <div class="flex items-center justify-between bg-slate-900 text-white px-4 py-2 rounded-xl text-xs font-black tracking-wider">
+              <div class="flex items-center justify-between bg-slate-900 text-white px-4 py-2 rounded-xl text-xs font-black tracking-wider shadow-sm">
                 <span>September ${d}, 2026</span>
                 <span class="text-emerald-400">Total: ₹ ${daySum.toFixed(2)}</span>
               </div>
@@ -1661,14 +1831,19 @@
 
           dayEntries.forEach(s => {
             outputHtml += `
-              <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between text-xs">
+              <div onclick="openBillReceipt('${s.id}')" class="bg-slate-50 p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between text-xs cursor-pointer hover:border-slate-300 transition active:scale-[0.99]">
                 <div>
-                  <div class="font-black text-slate-900 text-sm">${s.productName} ${s.productSize ? `(${s.productSize})` : ''}</div>
-                  <div class="text-xs text-slate-400 mt-0.5">Buyer: ${s.customerName || 'Walk-in'} ${s.customerContact ? `• ${s.customerContact}` : ''}</div>
+                  <div class="font-black text-slate-900 text-sm flex items-center gap-2">
+                    <span>${s.productName}</span>
+                    ${s.productSize ? `<span class="text-[10px] font-bold bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded">${s.productSize}</span>` : ''}
+                  </div>
+                  <div class="text-xs text-slate-400 mt-0.5">
+                    Time: <span class="font-bold text-slate-600">${s.time || 'Counter'}</span> • Mode: <span class="font-bold text-slate-800">${s.paymentMode || 'Cash'}</span>
+                  </div>
                   <div class="text-xs text-slate-700 font-bold mt-0.5">
                     ${s.quantity} units × ₹${s.unitPrice.toFixed(2)}
-                    ${s.discountAmount ? `<span class="text-rose-600 font-bold ml-1.5">-₹${s.discountAmount.toFixed(2)} disc</span>` : ''}
-                    ${s.extraCharge ? `<span class="text-emerald-700 font-bold ml-1.5">+₹${s.extraCharge.toFixed(2)} extra</span>` : ''}
+                    ${s.discountAmount ? `<span class="text-rose-600 font-bold ml-1">-₹${s.discountAmount.toFixed(2)}</span>` : ''}
+                    ${s.extraCharge ? `<span class="text-emerald-700 font-bold ml-1">+₹${s.extraCharge.toFixed(2)}</span>` : ''}
                   </div>
                 </div>
                 <div class="flex items-center gap-3">
@@ -1676,7 +1851,7 @@
                     <span class="text-[9px] uppercase tracking-wider font-extrabold text-slate-400 block leading-tight">Payment Taken</span>
                     <span class="font-black text-base text-emerald-600">₹ ${s.totalAmount.toFixed(2)}</span>
                   </div>
-                  <button onclick="deleteSaleEntry('${s.id}', '${s.productId}', ${s.quantity})" title="Delete" class="w-8 h-8 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center active:scale-95 shadow-xs">
+                  <button onclick="event.stopPropagation(); deleteSaleEntry('${s.id}', '${s.productId}', ${s.quantity})" title="Delete" class="w-8 h-8 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center active:scale-95 shadow-xs">
                     <i class="fa-solid fa-trash-can text-xs"></i>
                   </button>
                 </div>
@@ -1804,7 +1979,7 @@
               ${p.imageUrl ? `<img src="${p.imageUrl}" class="w-full h-full object-cover"/>` : `<i class="fa-regular fa-image text-slate-300 text-xs"></i>`}
             </div>
             <div>
-              <div class="font-black text-slate-900 text-xs">${p.name} ${p.size ? `(${p.size})` : ''}</div>
+              <div class="font-black text-slate-900 text-xs">${p.name}</div>
               <div class="text-[11px] text-slate-400 font-medium">Rate: ₹${p.price.toFixed(2)}</div>
             </div>
           </div>
@@ -1832,6 +2007,7 @@
       navigateView('view-settings');
     }
 
+    // PDF Table Generation with Uncontracted Full-Proportion KWS Logo
     function generateFormalPDF() {
       const jsPDF = window.jspdf.jsPDF;
       const docPDF = new jsPDF({ orientation: "portrait", unit: "pt", format: "a4" });
@@ -1845,24 +2021,26 @@
 
       const createTableContent = () => {
         docPDF.setFont("helvetica", "bold");
-        docPDF.setFontSize(14);
+        docPDF.setFontSize(13);
         docPDF.setTextColor(0, 0, 0);
-        docPDF.text("UTTAR PRADESH INTERNATIONAL TRADE SHOW (UPITS)", 40, 75);
+        docPDF.text("UTTAR PRADESH INTERNATIONAL TRADE SHOW (UPITS)", 135, 45);
 
         docPDF.setFont("helvetica", "normal");
-        docPDF.setFontSize(9);
-        docPDF.text("Khajani Welfare Society (KWS) Official Stall Stock Sheet", 40, 88);
-        if (stall) docPDF.text("Stall / Location: " + stall, 40, 100);
-        docPDF.text("Generated On: " + new Date().toLocaleString(), 40, stall ? 112 : 100);
+        docPDF.setFontSize(8.5);
+        docPDF.text("Khajani Welfare Society (KWS) Official Stall Stock Sheet", 135, 60);
+        if (stall) docPDF.text("Stall / Location: " + stall, 135, 72);
+        docPDF.text("Generated: " + new Date().toLocaleString(), 135, stall ? 84 : 72);
 
         const rows = products.map((p, idx) => {
           const sold = p.soldCount || 0;
           const remaining = p.quantity;
           const opening = p.openingStock || remaining;
           const total = p.totalStock || opening;
+          const sizesText = p.variants && p.variants.length > 0 ? p.variants.map(v => `${v.size}: ₹${v.price}`).join(', ') : '-';
           return [
             idx + 1,
-            p.name + (p.size ? " [" + p.size + "]" : ""),
+            p.name,
+            sizesText,
             p.price.toFixed(2),
             opening,
             sold,
@@ -1872,15 +2050,15 @@
         });
 
         docPDF.autoTable({
-          startY: stall ? 122 : 110,
-          head: [['S.No', 'Item Name', 'Price (INR)', 'Opening Stock', 'Quantity Sold', 'Stock Left', 'Total Stock']],
+          startY: 105,
+          head: [['S.No', 'Item Name', 'Sizes & Rates', 'Base Price (INR)', 'Opening Stock', 'Quantity Sold', 'Stock Left', 'Total Stock']],
           body: rows,
           theme: 'grid',
           styles: {
             font: 'helvetica',
-            fontSize: 9,
+            fontSize: 8.5,
             textColor: [0, 0, 0],
-            cellPadding: 6,
+            cellPadding: 5.5,
             lineColor: [0, 0, 0],
             lineWidth: 0.75,
             halign: 'left',
@@ -1894,12 +2072,12 @@
             lineWidth: 1
           },
           columnStyles: {
-            0: { halign: 'center', cellWidth: 35 },
-            2: { halign: 'right' },
-            3: { halign: 'center' },
+            0: { halign: 'center', cellWidth: 30 },
+            3: { halign: 'right' },
             4: { halign: 'center' },
             5: { halign: 'center' },
-            6: { halign: 'center' }
+            6: { halign: 'center' },
+            7: { halign: 'center' }
           },
           margin: { left: 40, right: 40 }
         });
@@ -1914,7 +2092,8 @@
 
       kwsLogoImg.onload = () => {
         try {
-          docPDF.addImage(kwsLogoImg, 'PNG', 40, 25, 45, 45);
+          // Exact, non-contracted rectangular ratio for KWS banner logo
+          docPDF.addImage(kwsLogoImg, 'PNG', 40, 28, 85, 48);
         } catch (err) {}
         createTableContent();
       };
@@ -1927,8 +2106,9 @@
     function exportToExcel() {
       const inventorySheetData = products.map((p, idx) => ({
         "S.No": idx + 1,
-        "Item Name": p.name + (p.size ? " [" + p.size + "]" : ""),
-        "Price (INR)": p.price,
+        "Item Name": p.name,
+        "Sizes & Rates": p.variants && p.variants.length > 0 ? p.variants.map(v => `${v.size}: Rs.${v.price}`).join(', ') : 'Base',
+        "Base Price (INR)": p.price,
         "Opening Stock": p.openingStock || p.quantity,
         "Quantity Sold": p.soldCount || 0,
         "Stock Left": p.quantity,
@@ -1937,6 +2117,8 @@
 
       const salesSheetData = sales.map(s => ({
         "Date": s.date + " Sep",
+        "Time": s.time || "-",
+        "Payment Mode": s.paymentMode || "Cash",
         "Product Name": s.productName,
         "Size": s.productSize || "-",
         "Unit Rate (INR)": s.unitPrice,
