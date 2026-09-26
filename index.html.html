@@ -4,15 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>UPITS 2026 - Uttar Pradesh International Trade Show</title>
-  <script src="https://cdn.tailwindcss.com"><\/script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"><\/script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"><\/script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"><\/script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"><\/script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js for Sales Visuals -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- jsPDF & AutoTable for Clean B&W PDF Table -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+  <!-- SheetJS for Excel Export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+
   <script>
     tailwind.config = {
       theme: {
@@ -32,37 +40,93 @@
         }
       }
     };
-  <\/script>
+  </script>
+
   <style>
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    body { background-color: #020617; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; padding: 0; color: #0F172A; }
+    body {
+      background-color: #020617;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #0F172A;
+    }
     .custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 8px; }
-    .pro-header-bg { background: #182232; }
-    .welcome-bg { background: radial-gradient(circle at 50% 6%, #FFFFFF 0%, #FFF8F3 35%, #FEEDDE 70%, #FDCBA0 100%); }
-    .clean-white-screen { background-color: #FFFFFF !important; }
-    .upits-logo-gradient { background: linear-gradient(135deg, #FF6F00 0%, #EA580C 28%, #D946EF 65%, #4A1D96 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    .pro-header-bg {
+      background: #182232;
+    }
+    
+    .welcome-bg {
+      background: radial-gradient(circle at 50% 6%, #FFFFFF 0%, #FFF8F3 35%, #FEEDDE 70%, #FDCBA0 100%);
+    }
+
+    .clean-white-screen {
+      background-color: #FFFFFF !important;
+    }
+
+    .upits-logo-gradient {
+      background: linear-gradient(135deg, #FF6F00 0%, #EA580C 28%, #D946EF 65%, #4A1D96 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Distinct Official Date Colors */
     .badge-date-25 { background-color: #2E3192; color: #FFFFFF; }
     .badge-date-26 { background-color: #662D91; color: #FFFFFF; }
     .badge-date-27 { background-color: #ED1C24; color: #FFFFFF; }
     .badge-date-28 { background-color: #D4145A; color: #FFFFFF; }
     .badge-date-29 { background-color: #F7931E; color: #FFFFFF; }
-    .banner-cream-box { background-color: #FBF8F5; border: 1px solid #EFE8E1; }
-    @keyframes datePulseGlow {
-      0% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.8), 0 0 8px rgba(250, 204, 21, 0.6); transform: scale(1.06); }
-      50% { box-shadow: 0 0 14px 4px rgba(250, 204, 21, 0.85), 0 0 18px rgba(234, 88, 12, 0.6); transform: scale(1.12); }
-      100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.8), 0 0 8px rgba(250, 204, 21, 0.6); transform: scale(1.06); }
+
+    .banner-cream-box {
+      background-color: #FBF8F5;
+      border: 1px solid #EFE8E1;
     }
-    .date-active-glow { animation: datePulseGlow 2s infinite ease-in-out; outline: 2.5px solid #FFFFFF; z-index: 10; }
-    @keyframes popSmoothEnter { 0% { opacity: 0; transform: scale(0.96) translateY(10px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
-    .anim-pop-enter { animation: popSmoothEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    .header-curved { border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; }
-    .app-bottom-margin { padding-bottom: 125px !important; }
+
+    @keyframes datePulseGlow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.8), 0 0 8px rgba(250, 204, 21, 0.6);
+        transform: scale(1.06);
+      }
+      50% {
+        box-shadow: 0 0 14px 4px rgba(250, 204, 21, 0.85), 0 0 18px rgba(234, 88, 12, 0.6);
+        transform: scale(1.12);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.8), 0 0 8px rgba(250, 204, 21, 0.6);
+        transform: scale(1.06);
+      }
+    }
+    .date-active-glow {
+      animation: datePulseGlow 2s infinite ease-in-out;
+      outline: 2.5px solid #FFFFFF;
+      z-index: 10;
+    }
+
+    @keyframes popSmoothEnter {
+      0% { opacity: 0; transform: scale(0.96) translateY(10px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .anim-pop-enter {
+      animation: popSmoothEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .header-curved {
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
+    }
+
+    .app-bottom-margin {
+      padding-bottom: 125px !important;
+    }
   </style>
 </head>
 <body class="antialiased min-h-screen flex justify-center items-center">
+
   <main class="w-full max-w-md min-h-screen clean-white-screen relative flex flex-col shadow-2xl overflow-x-hidden border-x border-slate-800/40">
-    <!-- Welcome Screen -->
+
+    <!-- 1. POSTER WELCOME SCREEN -->
     <section id="view-welcome" class="relative min-h-screen flex flex-col justify-between welcome-bg p-6 z-50 overflow-hidden select-none anim-pop-enter app-bottom-margin">
       <div class="absolute -top-16 -right-16 w-60 h-60 rounded-full bg-gradient-to-br from-orange-400/35 to-fuchsia-300/15 blur-3xl pointer-events-none"></div>
       <div class="absolute top-1/3 -left-20 w-64 h-64 rounded-full bg-gradient-to-tr from-purple-700/20 to-blue-500/15 blur-3xl pointer-events-none"></div>
@@ -122,7 +186,7 @@
       </div>
 
       <div class="w-full flex flex-col items-center gap-4 z-20 pb-2">
-        <button onclick="navigateView('view-home')" class="w-full py-4 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white font-heading font-black rounded-2xl shadow-xl active:scale-[0.98] transition flex items-center justify-center gap-3 text-base tracking-wide border border-white/20">
+        <button type="button" onclick="navigateView('view-home')" class="w-full py-4 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white font-heading font-black rounded-2xl shadow-xl active:scale-[0.98] transition flex items-center justify-center gap-3 text-base tracking-wide border border-white/20 cursor-pointer">
           <span>CONTINUE</span>
           <i class="fa-solid fa-arrow-right text-sm"></i>
         </button>
@@ -133,7 +197,7 @@
       </div>
     </section>
 
-    <!-- Main Application View -->
+    <!-- 2. MAIN APPLICATION -->
     <section id="view-home" class="hidden flex-col flex-1 pb-24 clean-white-screen app-bottom-margin anim-pop-enter">
       <header class="pro-header-bg text-white px-5 pt-6 pb-6 header-curved relative shadow-lg">
         <div class="flex items-center justify-between">
@@ -146,7 +210,7 @@
             </div>
           </div>
 
-          <button onclick="openSettingsScreen()" title="Settings" class="w-11 h-11 rounded-2xl bg-slate-800 hover:bg-slate-700 active:scale-95 flex items-center justify-center transition border border-slate-600 shadow-lg">
+          <button onclick="openSettingsScreen()" title="Settings" class="w-11 h-11 rounded-2xl bg-slate-800 hover:bg-slate-700 active:scale-95 flex items-center justify-center transition border border-slate-600 shadow-lg cursor-pointer">
             <i class="fa-solid fa-gear text-lg text-white"></i>
           </button>
         </div>
@@ -154,11 +218,13 @@
         <div class="mt-4 banner-cream-box rounded-2xl p-3.5 shadow-sm text-slate-900 flex items-center justify-center">
           <div class="flex items-center justify-center gap-2 flex-wrap font-datefont">
             <span class="text-sm font-extrabold text-slate-800">September</span>
-            <button onclick="setSystemDate('25')" id="day-cell-25" class="w-8 h-8 rounded-lg badge-date-25 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95">25</button>
-            <button onclick="setSystemDate('26')" id="day-cell-26" class="w-8 h-8 rounded-lg badge-date-26 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95">26</button>
-            <button onclick="setSystemDate('27')" id="day-cell-27" class="w-8 h-8 rounded-lg badge-date-27 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95">27</button>
-            <button onclick="setSystemDate('28')" id="day-cell-28" class="w-8 h-8 rounded-lg badge-date-28 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95">28</button>
-            <button onclick="setSystemDate('29')" id="day-cell-29" class="w-8 h-8 rounded-lg badge-date-29 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95">29</button>
+            
+            <button onclick="setSystemDate('25')" id="day-cell-25" class="w-8 h-8 rounded-lg badge-date-25 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95 cursor-pointer">25</button>
+            <button onclick="setSystemDate('26')" id="day-cell-26" class="w-8 h-8 rounded-lg badge-date-26 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95 cursor-pointer">26</button>
+            <button onclick="setSystemDate('27')" id="day-cell-27" class="w-8 h-8 rounded-lg badge-date-27 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95 cursor-pointer">27</button>
+            <button onclick="setSystemDate('28')" id="day-cell-28" class="w-8 h-8 rounded-lg badge-date-28 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95 cursor-pointer">28</button>
+            <button onclick="setSystemDate('29')" id="day-cell-29" class="w-8 h-8 rounded-lg badge-date-29 text-xs font-black flex items-center justify-center transition shadow-xs active:scale-95 cursor-pointer">29</button>
+            
             <span class="text-sm font-extrabold text-slate-800">, 2026</span>
           </div>
         </div>
@@ -170,7 +236,7 @@
         </div>
       </header>
 
-      <!-- Catalog Tab -->
+      <!-- TAB 1: PRODUCT CATALOG -->
       <div id="tab-catalog" class="anim-pop-enter px-5 mt-4 space-y-4 clean-white-screen">
         <div class="relative">
           <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-base"></i>
@@ -208,7 +274,9 @@
             <h2 class="text-xs font-black text-slate-500 uppercase tracking-wider">Inventory</h2>
             <span id="catalog-count" class="text-xs text-slate-500 font-bold">0 Items</span>
           </div>
+
           <div id="product-grid" class="space-y-3 pb-8"></div>
+
           <div id="catalog-empty" class="hidden text-center py-16 px-4">
             <i class="fa-solid fa-boxes-stacked text-5xl text-slate-300 mb-3"></i>
             <p class="font-bold text-slate-700 text-base">No products added yet</p>
@@ -217,7 +285,7 @@
         </div>
       </div>
 
-      <!-- Billing Tab -->
+      <!-- TAB 2: BILLING -->
       <div id="tab-billing" class="hidden anim-pop-enter px-5 mt-4 space-y-4 clean-white-screen">
         <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-4">
           <div class="flex items-center justify-between border-b border-slate-200 pb-3">
@@ -235,6 +303,7 @@
               </select>
             </div>
 
+            <!-- Size Selector: Populated only if product has variants -->
             <div id="sale-size-section" class="hidden">
               <label class="block text-xs font-black text-slate-800 mb-1.5">Select Size / Variant</label>
               <select id="sale-size-select" onchange="handleSaleSizeSelect()" class="w-full text-sm px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange bg-white font-bold text-slate-800">
@@ -257,6 +326,7 @@
               </div>
             </div>
 
+            <!-- Compulsory Payment Mode Selection -->
             <div>
               <label class="block text-xs font-black text-slate-800 mb-1.5">Payment Mode <span class="text-rose-600">*</span></label>
               <div class="grid grid-cols-2 gap-3">
@@ -313,7 +383,7 @@
         </div>
       </div>
 
-      <!-- Records Tab -->
+      <!-- TAB 3: RECORDS -->
       <div id="tab-records" class="hidden anim-pop-enter px-5 mt-4 space-y-4 clean-white-screen">
         <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex items-center justify-between shadow-sm">
           <div>
@@ -325,14 +395,16 @@
             <div id="manage-sales-sum" class="text-2xl font-black text-emerald-600 mt-0.5">₹ 0.00</div>
           </div>
         </div>
+
         <div id="sales-records-list" class="space-y-4 pb-8"></div>
+
         <div id="sales-empty" class="hidden text-center py-16">
           <i class="fa-solid fa-receipt text-5xl text-slate-300 mb-3"></i>
           <p class="text-sm font-bold text-slate-600">No sale records available</p>
         </div>
       </div>
 
-      <!-- Analytics Tab -->
+      <!-- TAB 4: ANALYTICS -->
       <div id="tab-analytics" class="hidden anim-pop-enter px-5 mt-4 space-y-4 pb-8 clean-white-screen">
         <div class="grid grid-cols-2 gap-2 bg-slate-100 p-1.5 rounded-2xl text-xs font-black">
           <button onclick="toggleGraphMode('top-products')" id="graph-subtab-bar" class="py-2.5 rounded-xl transition bg-white text-slate-900 shadow">
@@ -342,16 +414,18 @@
             Sales Timeline
           </button>
         </div>
+
         <div class="bg-slate-50 p-4 rounded-3xl shadow-sm border border-slate-200">
           <canvas id="analyticsChart" class="w-full" height="230"></canvas>
         </div>
+
         <div class="bg-slate-50 p-4 rounded-3xl shadow-sm border border-slate-200">
           <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-3">Items (High to Low Sold)</h3>
           <div id="analytics-product-list" class="space-y-2"></div>
         </div>
       </div>
 
-      <!-- Bottom Nav -->
+      <!-- Bottom Nav Bar -->
       <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 py-2.5 px-4 flex justify-between items-center z-40 shadow-xl">
         <button onclick="navigateToTab('tab-catalog')" id="nav-btn-catalog" class="flex flex-col items-center gap-1 flex-1 text-upits-orange font-black">
           <i class="fa-solid fa-boxes-stacked text-lg"></i>
@@ -370,9 +444,10 @@
           <span class="text-[10px] tracking-tight">Analytics</span>
         </button>
       </nav>
+
     </section>
 
-    <!-- Product Detail Screen -->
+    <!-- 3. PRODUCT PREVIEW SCREEN -->
     <section id="view-product-detail" class="hidden flex-col flex-1 clean-white-screen min-h-screen app-bottom-margin anim-pop-enter">
       <div class="sticky top-0 bg-white/95 backdrop-blur-md px-5 py-3.5 border-b border-slate-200 flex items-center justify-between z-20">
         <button onclick="navigateView('view-home')" class="flex items-center gap-2 text-xs font-black text-slate-800 hover:text-black py-1.5 px-3 rounded-xl bg-slate-100 active:scale-95 transition">
@@ -463,6 +538,7 @@
 
         <div class="bg-white border border-slate-200 p-5 rounded-3xl space-y-4 shadow-sm">
           <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">More Options</h3>
+          
           <div class="grid grid-cols-2 gap-2">
             <button onclick="promptChangePrice()" class="py-2.5 px-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-800 font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition">
               <i class="fa-solid fa-tag text-slate-500"></i> Edit Price
@@ -485,7 +561,7 @@
       </div>
     </section>
 
-    <!-- Settings Screen -->
+    <!-- 4. SETTINGS SCREEN -->
     <section id="view-settings" class="hidden flex-col flex-1 clean-white-screen min-h-screen app-bottom-margin anim-pop-enter">
       <header class="pro-header-bg text-white px-5 py-4 flex items-center justify-between shadow sticky top-0 z-20">
         <button onclick="navigateView('view-home')" class="flex items-center gap-2 text-xs font-extrabold text-slate-200 hover:text-white py-1.5 px-3 rounded-xl bg-white/10 active:scale-95 transition">
@@ -498,6 +574,61 @@
       <div class="p-5 space-y-4">
         <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
           <div class="text-xs font-black uppercase tracking-wider text-slate-800">
+            Event Date Selection (25 to 29 Sep)
+          </div>
+          <div class="grid grid-cols-5 gap-2 pt-1">
+            <button onclick="setSystemDate('25')" id="cfg-date-25" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">25</button>
+            <button onclick="setSystemDate('26')" id="cfg-date-26" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">26</button>
+            <button onclick="setSystemDate('27')" id="cfg-date-27" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">27</button>
+            <button onclick="setSystemDate('28')" id="cfg-date-28" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">28</button>
+            <button onclick="setSystemDate('29')" id="cfg-date-29" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">29</button>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Default Quick Sizes</h3>
+            <span class="text-[10px] text-slate-400 font-bold">Preset Manager</span>
+          </div>
+          <p class="text-[11px] text-slate-500">Global size options available when creating product size-price tiers.</p>
+          <div class="flex gap-2">
+            <input type="text" id="setting-new-size" placeholder="e.g. Free Size, 32 Inch, XL, Set" class="flex-1 text-xs px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800" />
+            <button onclick="addNewSizeOption()" class="px-4 py-2.5 bg-slate-900 text-white text-xs font-bold rounded-xl active:scale-95 transition">Add Size</button>
+          </div>
+          <div id="setting-size-tags-container" class="flex flex-wrap gap-2 pt-1"></div>
+        </div>
+
+        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+          <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Default Catalog Filter</h3>
+          <p class="text-[11px] text-slate-500">Pick which filter is applied automatically when opening the catalog.</p>
+          <select id="setting-default-filter" onchange="saveDefaultFilterPref()" class="w-full text-xs px-3.5 py-2.5 bg-white border rounded-xl font-bold text-slate-800">
+            <option value="all">All Items</option>
+            <option value="favorites">Starred Items</option>
+            <option value="bestseller">Top Sold</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+          </select>
+        </div>
+
+        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+          <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Stall Information</h3>
+          <div class="space-y-2">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Incharge Name</label>
+              <input type="text" id="setting-incharge-name" placeholder="Name on Reports" class="w-full text-xs px-3 py-2 bg-white border rounded-xl font-bold" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Stall / Hall Number</label>
+              <input type="text" id="setting-stall-no" placeholder="e.g. Hall 3, Stall B-12" class="w-full text-xs px-3 py-2 bg-white border rounded-xl font-bold" />
+            </div>
+          </div>
+          <button onclick="saveStallSettings()" class="w-full py-2.5 bg-slate-900 text-white text-xs font-bold rounded-xl active:scale-95 transition">
+            Save Stall Info
+          </button>
+        </div>
+
+        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2.5">
+          <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">
             Event Date Selection (25 to 29 Sep)
           </div>
           <div class="grid grid-cols-5 gap-2 pt-1">
@@ -632,6 +763,7 @@
     </div>
   </main>
 
+  <!-- Modular Scripts with Direct Cloud Firestore Integration -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { 
@@ -1260,7 +1392,8 @@
                 </div>
                 <div class="min-w-0">
                   <div class="flex items-center gap-2 flex-wrap">
-                    <h4 class="text-sm font-black text-slate-900 truncate">${p.name}</h4>${p.variants && p.variants.length > 0 ? `<span class="text-[10px] font-black bg-purple-100 text-purple-950 px-2 py-0.5 rounded-md border border-purple-200">${p.variants.length} Sizes</span>` : ''}
+                    <h4 class="text-sm font-black text-slate-900 truncate">${p.name}</h4>
+                    ${p.variants && p.variants.length > 0 ? `<span class="text-[10px] font-black bg-purple-100 text-purple-950 px-2 py-0.5 rounded-md border border-purple-200">${p.variants.length} Sizes</span>` : ''}
                     ${duplicateOriginal ? `<span class="text-[9px] font-black bg-amber-200 text-amber-900 px-2 py-0.5 rounded-md border border-amber-300">Duplicate</span>` : ''}
                   </div>
                   <div class="text-base font-black text-upits-orange mt-0.5">₹ ${p.price.toFixed(2)}</div>
@@ -1401,6 +1534,7 @@
       const updateData = {};
 
       if (openingVal !== "") {
+              if (openingVal !== "") {
         const newOpening = parseInt(openingVal) || 0;
         updateData.openingStock = newOpening;
         updateData.quantity = newOpening - (prod.soldCount || 0);
@@ -1645,13 +1779,15 @@
               <div onclick="openBillReceipt('${s.id}')" class="bg-slate-50 p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between text-xs cursor-pointer hover:border-slate-300 transition active:scale-[0.99]">
                 <div>
                   <div class="font-black text-slate-900 text-sm flex items-center gap-2">
-                    <span>${s.productName}</span>${s.productSize ? `<span class="text-[10px] font-bold bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded">${s.productSize}</span>` : ''}
+                    <span>${s.productName}</span>
+                    ${s.productSize ? `<span class="text-[10px] font-bold bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded">${s.productSize}</span>` : ''}
                   </div>
                   <div class="text-xs text-slate-400 mt-0.5">
                     Time: <span class="font-bold text-slate-600">${s.time || 'Counter'}</span> • Mode: <span class="font-bold text-slate-800">${s.paymentMode || 'Cash'}</span>
                   </div>
                   <div class="text-xs text-slate-700 font-bold mt-0.5">
-                    ${s.quantity} units × ₹${s.unitPrice.toFixed(2)}${s.discountAmount ? `<span class="text-rose-600 font-bold ml-1">-₹${s.discountAmount.toFixed(2)}</span>` : ''}
+                    ${s.quantity} units × ₹${s.unitPrice.toFixed(2)}
+                    ${s.discountAmount ? `<span class="text-rose-600 font-bold ml-1">-₹${s.discountAmount.toFixed(2)}</span>` : ''}
                     ${s.extraCharge ? `<span class="text-emerald-700 font-bold ml-1">+₹${s.extraCharge.toFixed(2)}</span>` : ''}
                   </div>
                 </div>
@@ -1660,7 +1796,7 @@
                     <span class="text-[9px] uppercase tracking-wider font-extrabold text-slate-400 block leading-tight">Payment Taken</span>
                     <span class="font-black text-base text-emerald-600">₹ ${s.totalAmount.toFixed(2)}</span>
                   </div>
-                  <button onclick="event.stopPropagation(); deleteSaleEntry('${s.id}', '${s.productId}',${s.quantity})" title="Delete" class="w-8 h-8 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center active:scale-95 shadow-xs">
+                  <button onclick="event.stopPropagation(); deleteSaleEntry('${s.id}', '${s.productId}', ${s.quantity})" title="Delete" class="w-8 h-8 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center active:scale-95 shadow-xs">
                     <i class="fa-solid fa-trash-can text-xs"></i>
                   </button>
                 </div>
@@ -1816,6 +1952,7 @@
       navigateView('view-settings');
     }
 
+    // PDF Table Generation with Uncontracted Full-Proportion KWS Logo & Small Text
     function generateFormalPDF() {
       const jsPDF = window.jspdf.jsPDF;
       const docPDF = new jsPDF({ orientation: "portrait", unit: "pt", format: "a4" });
@@ -1829,15 +1966,15 @@
 
       const createTableContent = () => {
         docPDF.setFont("helvetica", "bold");
-        docPDF.setFontSize(13);
+        docPDF.setFontSize(12);
         docPDF.setTextColor(0, 0, 0);
         docPDF.text("UTTAR PRADESH INTERNATIONAL TRADE SHOW (UPITS)", 175, 42);
 
         docPDF.setFont("helvetica", "normal");
-        docPDF.setFontSize(8.5);
-        docPDF.text("Khajani Welfare Society (KWS) Official Stall Stock Sheet", 175, 56);
-        if (stall) docPDF.text("Stall / Location: " + stall, 175, 68);
-        docPDF.text("Generated: " + new Date().toLocaleString(), 175, stall ? 80 : 68);
+        docPDF.setFontSize(8);
+        docPDF.text("Khajani Welfare Society (KWS) Official Stall Stock Sheet", 175, 55);
+        if (stall) docPDF.text("Stall / Location: " + stall, 175, 67);
+        docPDF.text("Generated: " + new Date().toLocaleString(), 175, stall ? 79 : 67);
 
         const rows = products.map((p, idx) => {
           const sold = p.soldCount || 0;
@@ -1864,11 +2001,11 @@
           theme: 'grid',
           styles: {
             font: 'helvetica',
-            fontSize: 8.5,
+            fontSize: 7.5,
             textColor: [0, 0, 0],
-            cellPadding: 5.5,
+            cellPadding: 4.5,
             lineColor: [0, 0, 0],
-            lineWidth: 0.75,
+            lineWidth: 0.5,
             halign: 'left',
             valign: 'middle'
           },
@@ -1880,7 +2017,7 @@
             lineWidth: 1
           },
           columnStyles: {
-            0: { halign: 'center', cellWidth: 30 },
+            0: { halign: 'center', cellWidth: 28 },
             3: { halign: 'right' },
             4: { halign: 'center' },
             5: { halign: 'center' },
@@ -1890,8 +2027,8 @@
           margin: { left: 40, right: 40 }
         });
 
-        const finalY = docPDF.lastAutoTable.finalY + 35;
-        docPDF.setFontSize(9);
+        const finalY = docPDF.lastAutoTable.finalY + 30;
+        docPDF.setFontSize(8);
         const signatory = incharge ? "Verified by: " + incharge : "Verified Incharge Signature: __________________________";
         docPDF.text(signatory, 40, finalY);
 
@@ -1956,16 +2093,6 @@
       const savedPref = localStorage.getItem('upits_default_filter') || 'all';
       setFilter(savedPref);
     });
-  <\/script>
+  </script>
 </body>
-</html>`;
-
-const blob = new Blob([htmlSource], { type: 'text/html' });
-const url = URL.createObjectURL(blob);
-const a = document.createElement('a');
-a.href = url;
-a.download = 'index.html';
-document.body.appendChild(a);
-a.click();
-document.body.removeChild(a);
-URL.revokeObjectURL(url);
+</html>
