@@ -40,6 +40,57 @@
         }
       }
     };
+
+    function navigateView(viewId) {
+      const views = ['view-welcome', 'view-home', 'view-product-detail', 'view-settings'];
+      views.forEach(function(v) {
+        const el = document.getElementById(v);
+        if (el) {
+          el.classList.add('hidden');
+          el.classList.remove('anim-pop-enter');
+        }
+      });
+      const target = document.getElementById(viewId);
+      if (target) {
+        target.classList.remove('hidden');
+        void target.offsetWidth;
+        target.classList.add('anim-pop-enter');
+        window.scrollTo(0, 0);
+      }
+    }
+
+    function navigateToTab(tabId) {
+      navigateView('view-home');
+      const tabs = ['tab-catalog', 'tab-billing', 'tab-records', 'tab-analytics'];
+      tabs.forEach(function(t) {
+        const el = document.getElementById(t);
+        const navBtn = document.getElementById('nav-btn-' + t.replace('tab-', ''));
+        if (t === tabId) {
+          if (el) {
+            el.classList.remove('hidden');
+            void el.offsetWidth;
+            el.classList.add('anim-pop-enter');
+          }
+          if (navBtn) {
+            navBtn.className = "flex flex-col items-center gap-1 flex-1 text-upits-orange font-black";
+          }
+        } else {
+          if (el) {
+            el.classList.add('hidden');
+            el.classList.remove('anim-pop-enter');
+          }
+          if (navBtn) {
+            navBtn.className = "flex flex-col items-center gap-1 flex-1 text-slate-400 font-extrabold hover:text-slate-800";
+          }
+        }
+      });
+      if (tabId === 'tab-analytics' && typeof window.renderAnalyticsGraphs === 'function') {
+        window.renderAnalyticsGraphs();
+      }
+    }
+
+    window.navigateView = navigateView;
+    window.navigateToTab = navigateToTab;
   </script>
 
   <style>
@@ -72,7 +123,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* Distinct Official Date Colors */
     .badge-date-25 { background-color: #2E3192; color: #FFFFFF; }
     .badge-date-26 { background-color: #662D91; color: #FFFFFF; }
     .badge-date-27 { background-color: #ED1C24; color: #FFFFFF; }
@@ -628,61 +678,6 @@
         </div>
 
         <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2.5">
-          <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">
-            Event Date Selection (25 to 29 Sep)
-          </div>
-          <div class="grid grid-cols-5 gap-2 pt-1">
-            <button onclick="setSystemDate('25')" id="cfg-date-25" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">25</button>
-            <button onclick="setSystemDate('26')" id="cfg-date-26" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">26</button>
-            <button onclick="setSystemDate('27')" id="cfg-date-27" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">27</button>
-            <button onclick="setSystemDate('28')" id="cfg-date-28" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">28</button>
-            <button onclick="setSystemDate('29')" id="cfg-date-29" class="py-3 text-xs font-black rounded-xl border border-slate-200 bg-white text-slate-700 font-bold">29</button>
-          </div>
-        </div>
-
-        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
-          <div class="flex items-center justify-between">
-            <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Default Quick Sizes</h3>
-            <span class="text-[10px] text-slate-400 font-bold">Preset Manager</span>
-          </div>
-          <p class="text-[11px] text-slate-500">Global size options available when creating product size-price tiers.</p>
-          <div class="flex gap-2">
-            <input type="text" id="setting-new-size" placeholder="e.g. Free Size, 32 Inch, XL, Set" class="flex-1 text-xs px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800" />
-            <button onclick="addNewSizeOption()" class="px-4 py-2.5 bg-slate-900 text-white text-xs font-bold rounded-xl active:scale-95 transition">Add Size</button>
-          </div>
-          <div id="setting-size-tags-container" class="flex flex-wrap gap-2 pt-1"></div>
-        </div>
-
-        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
-          <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Default Catalog Filter</h3>
-          <p class="text-[11px] text-slate-500">Pick which filter is applied automatically when opening the catalog.</p>
-          <select id="setting-default-filter" onchange="saveDefaultFilterPref()" class="w-full text-xs px-3.5 py-2.5 bg-white border rounded-xl font-bold text-slate-800">
-            <option value="all">All Items</option>
-            <option value="favorites">Starred Items</option>
-            <option value="bestseller">Top Sold</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-          </select>
-        </div>
-
-        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
-          <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">Stall Information</h3>
-          <div class="space-y-2">
-            <div>
-              <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Incharge Name</label>
-              <input type="text" id="setting-incharge-name" placeholder="Name on Reports" class="w-full text-xs px-3 py-2 bg-white border rounded-xl font-bold" />
-            </div>
-            <div>
-              <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Stall / Hall Number</label>
-              <input type="text" id="setting-stall-no" placeholder="e.g. Hall 3, Stall B-12" class="w-full text-xs px-3 py-2 bg-white border rounded-xl font-bold" />
-            </div>
-          </div>
-          <button onclick="saveStallSettings()" class="w-full py-2.5 bg-slate-900 text-white text-xs font-bold rounded-xl active:scale-95 transition">
-            Save Stall Info
-          </button>
-        </div>
-
-        <div class="bg-slate-50 p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2.5">
           <h3 class="text-xs font-black uppercase tracking-wider text-slate-800">System Backup</h3>
           <p class="text-[11px] text-slate-500">Download a complete offline copy of your stall inventory and transaction records.</p>
           <button onclick="backupAllDataJSON()" class="w-full py-3 px-3 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-800 font-bold text-xs flex items-center justify-center gap-2 active:scale-95 transition">
@@ -691,6 +686,79 @@
         </div>
       </div>
     </section>
+
+    <!-- Modal: Add Product -->
+    <div id="modal-add-product" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+      <div class="bg-white rounded-t-3xl sm:rounded-3xl w-full max-w-md p-6 max-h-[90vh] overflow-y-auto custom-scrollbar">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+          <h3 class="font-heading font-black text-base text-slate-900">Add Product</h3>
+          <button onclick="closeModal('modal-add-product')" class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form id="form-add-product" onsubmit="handleProductSubmit(event)" class="mt-4 space-y-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-800 mb-1">Product Name <span class="text-rose-600">*</span></label>
+            <input type="text" id="prod-name" required placeholder="Item Name" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange font-semibold" />
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-xs font-bold text-slate-800 mb-1">Base Price (₹) <span class="text-rose-600">*</span></label>
+              <input type="number" id="prod-price" required step="0.01" min="0" placeholder="0.00" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange font-black" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-800 mb-1">Opening Stock (Optional)</label>
+              <input type="number" id="prod-opening-stock" min="0" placeholder="0" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange font-black" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Total Stock (Optional)</label>
+            <input type="number" id="prod-total-stock" min="0" placeholder="0" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange font-bold" />
+          </div>
+
+          <!-- Non-compulsory Size-Price Variation Builder -->
+          <div class="border border-slate-200 bg-slate-50/70 p-3.5 rounded-2xl space-y-2">
+            <div class="flex items-center justify-between">
+              <label class="text-xs font-black text-slate-800 uppercase tracking-tight">Add Sizes & Specific Rates (Optional)</label>
+              <span class="text-[10px] text-slate-400 font-bold">Different Prices per Size</span>
+            </div>
+            <p class="text-[11px] text-slate-500">Pick or type a size and give it a dedicated price tier.</p>
+            
+            <div class="flex gap-2">
+              <select id="modal-size-preset-picker" onchange="handleModalPresetChange()" class="w-1/3 text-xs px-2.5 py-2 rounded-xl border border-slate-200 bg-white font-bold text-slate-800">
+              </select>
+              <input type="text" id="modal-new-size-name" placeholder="Size (e.g. XL, 32)" class="w-1/3 text-xs px-2.5 py-2 rounded-xl border border-slate-200 bg-white font-bold text-slate-800" />
+              <input type="number" id="modal-new-size-price" step="0.01" min="0" placeholder="Price ₹" class="w-1/4 text-xs px-2.5 py-2 rounded-xl border border-slate-200 bg-white font-bold text-slate-800" />
+              <button type="button" onclick="addSizePriceRow()" class="px-3 py-2 bg-slate-900 text-white rounded-xl text-xs font-black active:scale-95 transition">+</button>
+            </div>
+
+            <div id="modal-added-sizes-list" class="flex flex-wrap gap-2 pt-1"></div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Description (Optional)</label>
+            <textarea id="prod-desc" rows="2" placeholder="Write description if needed..." class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-upits-orange"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Product Photo (Optional)</label>
+            <input type="file" id="prod-image-file" accept="image/*" class="text-xs text-slate-500 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-slate-100 file:text-slate-800 cursor-pointer w-full" />
+            <div id="upload-status" class="text-xs text-upits-orange font-black mt-1 hidden">
+              <i class="fa-solid fa-spinner fa-spin"></i> Saving...
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" id="btn-save-product" class="w-full py-4 bg-gradient-to-r from-upits-orange to-fuchsia-700 hover:from-orange-700 hover:to-fuchsia-800 text-white font-black text-xs rounded-2xl shadow active:scale-98 transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-check"></i> Save Item
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- Modal: Detailed Bill Receipt -->
     <div id="modal-bill-receipt" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
@@ -802,9 +870,6 @@
     let availableSizes = ["G", "Standard", "Free Size", "Small", "Medium", "Large", "XL"];
     let temporaryModalVariants = [];
 
-    window.navigateView = navigateView;
-    window.navigateToTab = navigateToTab;
-    window.setFilter = setFilter;
     window.openAddProductModal = openAddProductModal;
     window.closeModal = closeModal;
     window.handleProductSubmit = handleProductSubmit;
@@ -982,45 +1047,6 @@
         }
       }
       return null;
-    }
-
-    function navigateView(viewId) {
-      const views = ['view-welcome', 'view-home', 'view-product-detail', 'view-settings'];
-      views.forEach(v => {
-        const el = document.getElementById(v);
-        if (el) {
-          el.classList.add('hidden');
-          el.classList.remove('anim-pop-enter');
-        }
-      });
-      const target = document.getElementById(viewId);
-      if (target) {
-        target.classList.remove('hidden');
-        void target.offsetWidth;
-        target.classList.add('anim-pop-enter');
-        window.scrollTo(0, 0);
-      }
-    }
-
-    function navigateToTab(tabId) {
-      navigateView('view-home');
-      const tabs = ['tab-catalog', 'tab-billing', 'tab-records', 'tab-analytics'];
-      tabs.forEach(t => {
-        const el = document.getElementById(t);
-        const navBtn = document.getElementById('nav-btn-' + t.replace('tab-', ''));
-        if (t === tabId) {
-          el.classList.remove('hidden');
-          void el.offsetWidth;
-          el.classList.add('anim-pop-enter');
-          navBtn.className = "flex flex-col items-center gap-1 flex-1 text-upits-orange font-black";
-        } else {
-          el.classList.add('hidden');
-          el.classList.remove('anim-pop-enter');
-          navBtn.className = "flex flex-col items-center gap-1 flex-1 text-slate-400 font-extrabold hover:text-slate-800";
-        }
-      });
-
-      if (tabId === 'tab-analytics') renderAnalyticsGraphs();
     }
 
     function setSystemDate(date) {
@@ -1533,8 +1559,7 @@
       const totalVal = document.getElementById('input-edit-total-stock').value.trim();
       const updateData = {};
 
-      
-              if (openingVal !== "") {
+      if (openingVal !== "") {
         const newOpening = parseInt(openingVal) || 0;
         updateData.openingStock = newOpening;
         updateData.quantity = newOpening - (prod.soldCount || 0);
